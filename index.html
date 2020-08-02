@@ -690,10 +690,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
 
 
-
-
-
-<!--PROVA-->
+<!--per le labels piechart-->
+<script src="https://raw.githubusercontent.com/emn178/chartjs-plugin-labels/master/src/chartjs-plugin-labels.js"></script>
 
 
 
@@ -702,37 +700,34 @@
 
 
 
-var obiettivo = 30;
-var ufficio,flag=0;
-var brand;
+var obiettivi = [22,376,200,752,336]; //tot: 1686
+var n_giorni_nel_mese = 22,OBIETTIVO=0;
+var data,ufficio,giorno,mese,brand;
+var flag=0;
+var brand,columns=[];
 var dataSet = [],dataSet1 = [],dataSetGiorno=[],dataSetMese=[];
 
-$('#dashTitle').append('&nbsp;&nbsp;&nbsp;&nbsp;Obiettivo: '+obiettivo);
-
-
-//CREA GLI ARRAY DA PASSARE NELLE 3 FUNZIONI DI CREAZIONE
+const URL1 = 'https://playsoluzioniecomunicazione.it/dashboard/report/ESTRAZIONE WIND.xlsx';   //con www da problemi di sicurezza
+const URL = 'https://playsoluzioniecomunicazione.it/dashboard/report/ESTRAZIONE ENERGIA.xlsx';
+//CREA GLI ARRAY DA PASSARE NELLE 3 FUNZIONI DI CREAZIONE (questa viene chiamata nel caso ho file xlsx)
 function BindTable(jsondata, tableid) {//Function used to convert the JSON array to Html Table
-     var columns = BindTableHeader(jsondata, tableid); //Gets all the column headings of Excel
 
-   if(columns[3]==null){
-     columns[3] = "Brand Energia"
-     brand = "Wind";
-       flag = 1;
-  }
+     if(flag == 0)
+    columns = BindTableHeader(jsondata, tableid); //Gets all the column headings of Excel
+       else
+      brand = "Wind";
 
   for (var i = 0; i < jsondata.length; i++) {
         // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
 
-     if(flag==0)
+    if(flag==0)
      brand = jsondata[i][columns[3]];
-
-   var ufficio;
 
    if(jsondata[i][columns[1]]){
      ufficio = jsondata[i][columns[1]];
 
-     var giorno = jsondata[i][columns[0]].substr(0,2);
-     var mese = jsondata[i][columns[0]].substr(3,2);
+     giorno = jsondata[i][columns[0]].substr(0,2);
+     mese = jsondata[i][columns[0]].substr(3,2);
 
      //console.log("mese: "+mese);
      //console.log("ufficio: "+ufficio);
@@ -754,13 +749,70 @@ function BindTable(jsondata, tableid) {//Function used to convert the JSON array
 
      }
 
-  createTableXLS(dataSet,dataSet1);
+  //console.log("energia: ");
+      // console.log(dataSet);
+  if(flag==0)
+     ExportToTableByURL(URL1);
+  else{
+    createTableXLS(dataSet,dataSet1);
     createPieChartMeseXLS(dataSetMese);
-  createPieChartGiornoXLS(dataSetGiorno);
- }
+    createPieChartGiornoXLS(dataSetGiorno);
+  }
+}
 
 
-//PRENDE LE COLONNE APPOSITE
+//CREA GLI ARRAY DA PASSARE NELLE 3 FUNZIONI DI CREAZIONE
+/*function BindTable1(jsondata, tableid) {//Function used to convert the JSON array to Html Table
+
+   //if(columns[3]==null){
+     //columns[3] = "Brand Energia"
+  //	 brand = "Wind";
+    //   flag = 1;
+  //}
+
+  for (var i = 0; i < jsondata.length; i++) {
+        // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+
+     //if(flag==0)
+    // brand = jsondata[i][columns[3]];
+
+   if(jsondata[i][columns[1]]){
+     ufficio = jsondata[i][columns[1]];
+
+     giorno = jsondata[i][columns[0]].substr(0,2);
+     mese = jsondata[i][columns[0]].substr(3,2);
+
+     //console.log("mese: "+mese);
+     //console.log("ufficio: "+ufficio);
+     //console.log("brand: "+brand);
+
+     if(mese == 7)  {
+      dataSet.push(ufficio);
+        dataSetMese.push(brand);
+     }
+
+    if(mese == 7 && giorno==17) {
+      dataSet1.push(ufficio);
+      dataSetGiorno.push(brand);
+    }
+
+        // }
+
+  }
+
+     }
+
+//console.log("wind: ");
+//	 console.log(dataSet);
+
+
+createTableXLS(dataSet,dataSet1);
+createPieChartMeseXLS(dataSetMese);
+createPieChartGiornoXLS(dataSetGiorno);
+}*/
+
+
+//PRENDE LE COLONNE VOLUTE NEI DATI JSON
 function BindTableHeader(jsondata, tableid) {
      var columnSet = [];
 
@@ -780,10 +832,15 @@ function BindTableHeader(jsondata, tableid) {
 
      }
      return columnSet;
- }
+}
 
 
-//CONTROLLA IL TIPO DI FILE (XLS O XLSX)
+
+
+/*FILE BY INPUT*/
+
+//GESTISCE I FILE XLS O XLSX TRAMITE INPUT
+/*
 function ExportToTable() {
       var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
   //console.log("FILE: "+$("#excelfile").val().toLowerCase());  //excelfile.val() è il percorso del mio file. Devo creare un oggetto file tramite url in modo che il val sia il mio percorso.
@@ -849,29 +906,25 @@ function ExportToTable() {
       else {
           alert("Please upload a valid Excel file!");
       }
-}
+}*/
 
 
 //per la lettura dei XLS
-var oFileIn;
-var col_data = 1;
-var col_uff = 4;
-var col_operat = 5;
-var col_brand = 14;
-var data,mese,giorno;
-var dataSet = [],dataSet1=[],dataSetMese=[],dataSetGiorno=[];
+
+
 
 //mette un listener nell'elemento bottone "carica file", quando esso viene cambiato allora viene chiamata la funzione filePicked
-$(function() {
+/*$(function() {
   oFileIn = document.getElementById('excelfile');
   if(oFileIn.addEventListener) {
     oFileIn.addEventListener('change', filePicked, false);
   }
 });
+*/
 
 
-
-//LEGGE UN FILE .XLS
+//LEGGE UN FILE .XLS IN INPUT
+/*
 function filePicked(oEvent) {
   // Get The File From The Input
   var oFile = oEvent.target.files[0];
@@ -946,19 +999,120 @@ function filePicked(oEvent) {
   // Tell JS To Start Reading The File.. You could delay this if desired
   reader.readAsBinaryString(oFile);
   }
+}*/
+
+
+
+
+
+/*FILE BY URL*/
+
+var oFile,oFile1;
+
+//FILE XLSX TRAMITE URL	(la prima volta verrà chiamata con il file energia.xlsx, la seconda con wind.xlsx)
+$(document).ready(ExportToTableByURL(URL));
+function ExportToTableByURL(url) {
+
+//var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)+([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+var regex = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/;
+
+var request = new XMLHttpRequest();  //crea una richiesta http
+request.open('POST',url, true);
+request.setRequestHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8');    //setto una header alla mia richiesta di tipo xslx
+request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
+
+request.onload = function(e) {
+if (this.status === 200) {    //andata a buon fine
+  blob = this.response;
+
+  if(window.navigator.msSaveOrOpenBlob) {
+    window.navigator.msSaveBlob(blob, "energia.xlsx");
+  }
+  else{
+    oFile = new File([blob], "energia.xlsx", {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+    //console.log("oFile xlsx creato da zero:");
+    //console.log(oFile);
+
+
+      //if (regex.test(oFile.name.toLowerCase())) {
+          var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
+          if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
+              xlsxflag = true;
+          }
+          //Checks whether the browser supports HTML5
+          if (typeof (FileReader) != "undefined") {
+              var reader = new FileReader();
+
+
+              reader.onload = function (e) {
+                  var data = e.target.result;
+                  //Converts the excel data in to object
+                  if (xlsxflag) {
+                      var workbook = XLSX.read(data, { type: 'binary' });
+                  }
+                  else {
+                      var workbook = XLS.read(data, { type: 'binary' });
+                  }
+                  //Gets all the sheetnames of excel in to a variable
+                  var sheet_name_list = workbook.SheetNames;
+
+                  var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
+                  sheet_name_list.forEach(function (y) { //Iterate through all sheets
+                      //Convert the cell value to Json
+                      if (xlsxflag) {
+            //console.log("file xlsx rilevato1!!!");
+                          var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                      }
+                      else {
+                          var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                      }
+
+                      if (exceljson.length > 0 && cnt == 0) {
+
+            BindTable(exceljson, '#exceltable');
+            if(flag == 0)
+            flag=1;
+
+            console.log(flag);
+                          cnt++;
+                      }
+                  });
+                  //$('#exceltable').show();
+              }
+
+              if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
+        //console.log("file xlsx rilevato2!!!");
+                 //reader.readAsArrayBuffer(blob[0].files[0]);
+        reader.readAsArrayBuffer(oFile);
+              }
+              else {
+                  reader.readAsBinaryString($("#excelfile")[0].files[0]);
+              }
+          }
+          else {
+              alert("Sorry! Your browser does not support HTML5!");
+          }
+      /*}
+      else {
+          alert("Please upload a valid Excel file!");
+      }*/
+
+          }
+         }
+      };
+      request.send();
+
 }
 
+//Richiesta http del file XLS
+var myurl = 'https://playsoluzioniecomunicazione.it/dashboard/report/energia.xls';  //con www da problemi
+var myurl1 = 'https://playsoluzioniecomunicazione.it/dashboard/report/wind.xls';
+var oFile,sFilename,flag=0;
+//$(document).ready(getFileByURL(myurl));
+function getFileByURL(url){
 
-
-/*
-//richiesta http del file XLS
-var myurl = 'https://playsoluzioniecomunicazione.it/dashboard/report/wind.xls';  //con www da problemi
-var myurl1 = 'report/wind.xls';
-//$(document).ready(getFileByURL());
-//function getFileByURL(){
-var oFile,sFilename;
 var request = new XMLHttpRequest();  //crea una richiesta http
-request.open('POST', myurl, true);
+request.open('POST',url, true);
 request.setRequestHeader('Content-Type', 'application/vnd.ms-excel; charset=UTF-8');    //setto una header alla mia richiesta
 request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
 
@@ -973,14 +1127,24 @@ request.onload = function(e) {
       oFile = new File([blob], "nome", {type:"application/vnd.ms-excel"});
       //console.log("oFile creato da zero:");
       //console.log(oFile);
-      filePickedURL();
+      //if(flag==0){
+        filePickedURL();
+     // }
     }
    }
 };
   request.send();
-//}
-*/
-//LEGGE UN FILE .XLS DAL WEB
+}
+
+
+
+var col_data = 1;
+var col_uff = 4;
+var col_operat = 5;
+var col_brand = 14;
+var data,mese,giorno;
+var dataSet = [],dataSet1=[],dataSetMese=[],dataSetGiorno=[];
+//FILE XLS TRAMITE URL
 function filePickedURL() {
 
   var reader = new FileReader();
@@ -989,7 +1153,7 @@ function filePickedURL() {
     ExportToTable();
   }
   else{
-    console.log("E' un file XLS");
+    //console.log("E' un file XLS");
   // Ready The Event For When A File Gets Selected
   reader.onload = function(e) {
     var data = e.target.result;
@@ -1030,10 +1194,16 @@ function filePickedURL() {
 
       });
     });
-
-     createTableXLS(dataSet,dataSet1);
-      createPieChartMeseXLS(dataSetMese);
-    createPieChartGiornoXLS(dataSetGiorno);
+    //console.log(flag);
+    if(flag==0){
+      flag=1;
+      getFileByURL(myurl1)
+    }
+    else{
+      createTableXLS(dataSet,dataSet1);
+        createPieChartMeseXLS(dataSetMese);
+      createPieChartGiornoXLS(dataSetGiorno);
+    }
   };
 
   // Tell JS To Start Reading The File.. You could delay this if desired
@@ -1041,155 +1211,20 @@ function filePickedURL() {
   }
 }
 
-$(document).ready(ExportToTableByURL());
-//serve per prendere il file xlsx tramite url, per ora non funziona perchè c'è un blocco sicurezza
-function ExportToTableByURL() {
-var url = 'https://playsoluzioniecomunicazione.it/dashboard/report/ESTRAZIONE WIND.xlsx';
-   var url1 = 'https://www.salesdashboard.it/dashboard/report/energia.xls';
-   //var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)+([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
-   var regex = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/;
-      /*//Checks whether the file is a valid excel file
-
-  // var myFile = new File(url);
-
- console.log("FILE: "+$("#excelfile").val().toLowerCase());  //excelfile.val() è il percorso del mio file. Devo creare un oggetto file tramite url in modo che il val sia il mio percorso.
- //console.log("FILE url: "+url.toLowerCase());
-
-    console.log("COSA SEI1: "+$("#excelfile"));
-    console.log("COSA SEI2: "+$("#excelfile")[0]);
-    console.log("COSA SEI3: "+$("#excelfile")[0].files[0]);
-
-   var blob = null;
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
-    xhr.onload = function()
-    {
-      blob = xhr.response;     //xhr.response is now a blob object    MA é NULL dato che c'è la sicurezza
-      console.log("BLOB: "+blob);
-    }
-    xhr.send();*/
-
-
-
-      var request = new XMLHttpRequest();  //crea una richiesta http
-      request.open('POST', 'https://playsoluzioniecomunicazione.it/dashboard/report/ESTRAZIONE WIND.xlsx', true);
-      request.setRequestHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8');    //setto una header alla mia richiesta di tipo xslx
-      request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
-
-      request.onload = function(e) {
-        if (this.status === 200) {    //andata a buon fine
-           blob = this.response;
-
-          if(window.navigator.msSaveOrOpenBlob) {
-           window.navigator.msSaveBlob(blob, "wind.xlsx");
-          }
-          else{
-            oFile = new File([blob], "energia.xlsx", {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
-            console.log("oFile xlsx creato da zero:");
-            console.log(oFile);
-
-
-
-
-
-      //if (regex.test(oFile.name.toLowerCase())) {
-          var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
-          if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
-              xlsxflag = true;
-          }
-          //Checks whether the browser supports HTML5
-          if (typeof (FileReader) != "undefined") {
-              var reader = new FileReader();
-
-
-              reader.onload = function (e) {
-                  var data = e.target.result;
-                  //Converts the excel data in to object
-                  if (xlsxflag) {
-                      var workbook = XLSX.read(data, { type: 'binary' });
-                  }
-                  else {
-                      var workbook = XLS.read(data, { type: 'binary' });
-                  }
-                  //Gets all the sheetnames of excel in to a variable
-                  var sheet_name_list = workbook.SheetNames;
-
-                  var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
-                  sheet_name_list.forEach(function (y) { //Iterate through all sheets
-                      //Convert the cell value to Json
-                      if (xlsxflag) {
-                          var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
-                      }
-                      else {
-                          var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
-                      }
-
-          console.log(exceljson.length);
-
-                      if (exceljson.length > 0 && cnt == 0) {
-                          BindTable(exceljson, '#exceltable');
-                          cnt++;
-                      }
-                  });
-                  $('#exceltable').show();
-              }
-
-              if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
-        console.log("file xlsx rilevato!!!");
-                 //reader.readAsArrayBuffer(blob[0].files[0]);
-        reader.readAsDataURL(oFile);
-              }
-              else {
-                  reader.readAsBinaryString($("#excelfile")[0].files[0]);
-              }
-          }
-          else {
-              alert("Sorry! Your browser does not support HTML5!");
-          }
-      /*}
-      else {
-          alert("Please upload a valid Excel file!");
-      }*/
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-          }
-         }
-      };
-      request.send();
-
-
-
-
-
-
-
-}
-
-
-
-
-
+var totMese=0,totGiorno=0;
 //CREA LA TABELLA AVENDO L'ARRAY DEGLI UFFICI DEL MESE, E DEL GIORNO
 function createTableXLS(dataSet,dataSet1){
 
 var dataSetOff = [];
 
 var ufficiMese = [], n_ufficiMese = [], prev;
-var totMese=0;
+
 
 dataSet.sort();
 
@@ -1206,7 +1241,7 @@ for ( var i = 0; i < dataSet.length; i++ ) {
 }
 
 var ufficiGiorno = [], n_ufficiGiorno = [],  n_ufficiGiorno2 = [], prev1;
-var k=0,totGiorno=0;
+var k=0;
 
 dataSet1.sort();
 
@@ -1241,7 +1276,7 @@ myTable.dataTable( {
   data: dataSetOff,
   destroy: true,   //eliminiamo la precedente tabella, molto importante
   paging: false,
-  scrollY: $(window).height()-390,
+  scrollY: $(window).height()-300,
   scrollX: true,
   //scrollCollapse: false,
   language: {
@@ -1257,11 +1292,11 @@ myTable.dataTable( {
   order: [[0, 'asc']],
 });
 }
-
+var energieMese = [];
 //CREA IL PIECHART MESE AVENDO L'ARRAY DEI BRAND DEL MESE
 function createPieChartMeseXLS(dataSet){
- console.log(dataSet);
-var energie = [],n_energie = [];
+
+var n_energie = [];
 var mese,prev;
 var ufficio;
 
@@ -1269,7 +1304,7 @@ var ufficio;
 
 for ( var i = 0; i < dataSet.length; i++ ) {
   if ( dataSet[i] !== prev ) {
-    energie.push(dataSet[i]);
+    energieMese.push(dataSet[i]);
     n_energie.push(1);
   }
   else
@@ -1278,25 +1313,36 @@ for ( var i = 0; i < dataSet.length; i++ ) {
   prev = dataSet[i];
 }
 
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
-   for(var i=0;i<energie.length;i++){
-       //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-       $('#cardMese').append('<h2>'+energie[i]+'  '+n_energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
+for(var i=0;i<energieMese.length;i++){
+  OBIETTIVO = OBIETTIVO + obiettivi[i];
+}
 
+   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
+ var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
+
+$('#cardMese').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totMese/OBIETTIVO*100).toFixed(1)+'%;" aria-valuenow="'+(totMese/OBIETTIVO*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totMese/OBIETTIVO*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
+
+   for(var i=0;i<energieMese.length;i++){
+       //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
+
+       $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivi[i]*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivi[i]*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivi[i]*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
    }
 
+
+$('#dashTitle').append('&nbsp;&nbsp;&nbsp;&nbsp;Obiettivo mese: '+OBIETTIVO+',&nbsp;&nbsp;&nbsp;brand: '+obiettivi[0]+','+obiettivi[1]+','+obiettivi[2]+','+obiettivi[3]+','+obiettivi[4]);
+
+//console.log(obiettivi);
 
 var pieMese = document.getElementById("myPieChartMese").getContext('2d');
 var myPieChart = new Chart(pieMese, {
       //type: 'doughnut',
   type: 'pie',
       data: {
-        labels: energie,
+        labels: energieMese,
         datasets: [{
           data: n_energie,
-          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#1cc81a', '#36b9rc','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', '#17a673', '#2c9faf','#2e59d9', '#17a673', '#2c9faf'],
+          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
+          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
           hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
       },
@@ -1330,6 +1376,8 @@ var myPieChart = new Chart(pieMese, {
       sum += data;
       });
       let percentage = (value * 100 / sum).toFixed(1) + "%";
+      if(value==0)
+        percentage="";
       return percentage;
     },
     color: 'white',
@@ -1348,16 +1396,17 @@ var myPieChart = new Chart(pieMese, {
 
 //CREA IL PIECHART GIORNO AVENDO L'ARRAY DEI BRAND DEL GIORNO
 function createPieChartGiornoXLS(dataSet){
-console.log(dataSet);
-var energie = [],n_energie = [];
+//console.log(dataSet);
+var energieGiorno = [],n_energie = [],n_energie2=[];
 var mese,giorno,prev;
+var k=0;
 
 
 dataSet.sort();
 
 for ( var i = 0; i < dataSet.length; i++ ) {
   if ( dataSet[i] !== prev ) {
-    energie.push(dataSet[i]);
+    energieGiorno.push(dataSet[i]);
     n_energie.push(1);
   } else {
     n_energie[n_energie.length-1]++;
@@ -1365,12 +1414,23 @@ for ( var i = 0; i < dataSet.length; i++ ) {
   prev = dataSet[i];
 }
 
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
+  for(var i=0;i<energieMese.length;i++){
+  if(energieMese[i] !== energieGiorno[k])
+    n_energie2[i] = 0;
+  else
+    n_energie2[i] = n_energie[k++];
+}
 
-   for(var i=0;i<energie.length;i++){
+
+   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
+ var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
+
+$('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
+
+
+   for(var i=0;i<energieMese.length;i++){
        //$('#pieLegendGiorno').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-  $('#cardGiorno').append('<h2>'+energie[i]+'  '+n_energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
+  $('#cardGiorno').append('<h4>'+energieMese[i]+': '+n_energie2[i]+' su '+(obiettivi[i]/n_giorni_nel_mese).toFixed(0)+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
    }
 
 var pieGiorno = document.getElementById("myPieChartGiorno");
@@ -1378,11 +1438,11 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
       //type: 'doughnut',
   type: 'pie',
       data: {
-        labels: energie,
+        labels: energieMese,
         datasets: [{
-          data: n_energie,
-          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#1cc81a', '#36b9rc','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', '#17a673', '#2c9faf','#2e59d9', '#17a673', '#2c9faf'],
+          data: n_energie2,
+         backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
+          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
           hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
       },
@@ -1406,6 +1466,7 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
     boxWidth: 20
     }
       },
+
        // cutoutPercentage: 50,   //spessore anello
      plugins: {
     datalabels: {
@@ -1416,6 +1477,8 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
       sum += data;
       });
       let percentage = (value * 100 / sum).toFixed(1) + "%";
+      if(value==0)
+        percentage="";
       return percentage;
     },
     color: 'white',
@@ -1441,7 +1504,7 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
 
 
 
-<!--SCRIPT PERSONALI (CSV FILE)-->
+<!--CSV FILE-->
 <script>
 /*
 var col_data = 0;
