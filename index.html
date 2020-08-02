@@ -3,7 +3,7 @@
 
 <head>
 
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,9 +26,199 @@
 <!-- Custom styles for the TABLE -->
 <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+
+
+
+
+<!--LOADING WHEEL-->
+
+
+<style>
+
+
+
+
+/* Spinner Wrapper */
+.loader {
+width: 100vw;
+height: 100vh;
+background: #fff;
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.loader-inner {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+/* Spinner */
+.lds-roller {
+display: inline-block;
+position: relative;
+width: 64px;
+height: 64px;
+}
+.lds-roller div {
+animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+transform-origin: 32px 32px;
+}
+.lds-roller div:after {
+content: " ";
+display: block;
+position: absolute;
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: #333;
+margin: -3px 0 0 -3px;
+}
+.lds-roller div:nth-child(1) {
+animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+top: 50px;
+left: 50px;
+}
+.lds-roller div:nth-child(2) {
+animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+top: 54px;
+left: 45px;
+}
+.lds-roller div:nth-child(3) {
+animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+top: 57px;
+left: 39px;
+}
+.lds-roller div:nth-child(4) {
+animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+top: 58px;
+left: 32px;
+}
+.lds-roller div:nth-child(5) {
+animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+top: 57px;
+left: 25px;
+}
+.lds-roller div:nth-child(6) {
+animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+top: 54px;
+left: 19px;
+}
+.lds-roller div:nth-child(7) {
+animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+top: 50px;
+left: 14px;
+}
+.lds-roller div:nth-child(8) {
+animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+top: 45px;
+left: 10px;
+}
+@keyframes lds-roller {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+
+
+/*
+
+p.lead {
+text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1)
+}
+
+.btn-outline-light:hover, .btn-outline-light:focus {
+color: #de6262 !important;
+
+}*/
+
+
+/*Add animation to "page content" */
+.animate-bottom {
+position: relative;
+-webkit-animation-name: animatebottom;
+-webkit-animation-duration: 1s;
+animation-name: animatebottom;
+animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+from { bottom:-100px; opacity:0 }
+to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+from{ bottom:-100px; opacity:0 }
+to{ bottom:0; opacity:1 }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <body id="page-top">
+
+
+
+<!-- Loading Spinner Wrapper-->
+<div class="loader text-center" id="loader">
+<div class="loader-inner">
+
+    <!-- Animated Spinner -->
+    <div class="lds-roller mb-3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Spinner Description Text [For Demo Purpose]-->
+    <h4 class="text-uppercase font-weight-bold">Ciao !</h4>
+    <p class="font-italic text-muted">Attendi un attimo</p>
+</div>
+</div>
+
+<div style="display:none;" id="mainDiv" class="animate-bottom">
+
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -557,7 +747,7 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" cellspacing="0" style="width: 100% !important;">
+      <table class="table table-bordered" id="dataTable"  cellspacing="0" style="width: 100%! important;">
         <thead>
           <tr>
             <th></th>
@@ -617,6 +807,12 @@
 
 </div>
 <!-- End of Page Wrapper -->
+
+
+</div>
+<!-- End of Loading wheel Page -->
+
+
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
@@ -1276,6 +1472,11 @@ myTable.dataTable( {
   data: dataSetOff,
   destroy: true,   //eliminiamo la precedente tabella, molto importante
   paging: false,
+  columnDefs: [     //larghezza colonne
+          { width: "50%", targets: 0 },
+    { width: "25%", targets: 1 },
+    { width: "25%", targets: 2 },
+  ],
   scrollY: $(window).height()-300,
   scrollX: true,
   //scrollCollapse: false,
@@ -1291,6 +1492,11 @@ myTable.dataTable( {
   ],
   order: [[0, 'asc']],
 });
+
+  //quando sarà caricata mostro l'intera pagina
+    showPage();
+    $('#dataTable').DataTable().columns.adjust();
+
 }
 var energieMese = [];
 //CREA IL PIECHART MESE AVENDO L'ARRAY DEI BRAND DEL MESE
@@ -1831,9 +2037,11 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
 }*/
 </script>
 
-
 <script>
-
+function showPage() {
+document.getElementById("loader").style.display = "none";
+document.getElementById("mainDiv").style.display = "block";
+}
 </script>
 
 </body>
