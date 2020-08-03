@@ -191,7 +191,7 @@ to{ bottom:0; opacity:1 }
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="getData()">
 
 
 
@@ -535,11 +535,57 @@ to{ bottom:0; opacity:1 }
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 id="dashTitle" class="h3 mb-0 text-gray-800">Sales Dashboard (esempio oggi: 17 Luglio)</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-upload fa-sm text-white-50"></i>
+        <h1 id="dashTitle" class="h3 mb-0 text-gray-800"></h1>
+        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-upload fa-sm text-white-50"></i>
     <input type="file" id="excelfile"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  />
     Carica Excel
-  </a>
+  </a>-->
+
+
+
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#objModal">
+Inserisci obiettivi
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="objModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">OBIETTIVI MESE</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+ <div class="col-md-12 pd-10">
+  <!--<h3>Java Script Number Only area</h3>
+    <div class="col-md-2"><h4>Type only Number</h4> </div> -->
+    <div class="col-md-12"><INPUT class="col-md-12" id="inputEni" placeholder="ENI" onkeypress="return isNumberKey(event)"   type="number" name="inputEni"/> </div><br>
+  <div class="col-md-12"><INPUT class="col-md-12" id="inputHeracomm" placeholder="HERACOMM" onkeypress="return isNumberKey(event)"   type="number" name="inputHeracomm"/> </div><br>
+    <div class="col-md-12"><INPUT class="col-md-12" id="inputIberdrola" placeholder="IBERDROLA" onkeypress="return isNumberKey(event)"   type="number" name="inputIberdrola"/> </div><br>
+  <div class="col-md-12"><INPUT class="col-md-12" id="inputSinergy" placeholder="SINERGY" onkeypress="return isNumberKey(event)"   type="number" name="inputSinergy"/> </div><br>
+   <div class="col-md-12"><INPUT class="col-md-12" id="inputWind" placeholder="WIND" onkeypress="return isNumberKey(event)"   type="number" name="inputWind"/> </div>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+    <button type="button" class="btn btn-primary" onclick="setObj()" data-dismiss="modal">Conferma</button>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
       </div>
 
       <!-- Content Row -->
@@ -780,9 +826,10 @@ to{ bottom:0; opacity:1 }
 
 <!--CSV-->
 
-
-
 <div id='my_file_output'></div>
+
+
+
 
 
 <!--FINE CSV-->
@@ -896,15 +943,16 @@ to{ bottom:0; opacity:1 }
 
 
 
-var obiettivi = [22,376,200,752,336]; //tot: 1686
+//var obiettivi = [22,376,200,752,336]; //tot: 1686
+var obiettivi = [];
 var n_giorni_nel_mese = 22,OBIETTIVO=0;
 var data,ufficio,giorno,mese,brand;
 var flag=0;
 var brand,columns=[];
 var dataSet = [],dataSet1 = [],dataSetGiorno=[],dataSetMese=[];
 
-const URL1 = 'https://playsoluzioniecomunicazione.it/dashboard/report/ESTRAZIONE WIND.xlsx';   //con www da problemi di sicurezza
-const URL = 'https://playsoluzioniecomunicazione.it/dashboard/report/ESTRAZIONE ENERGIA.xlsx';
+const URL1 = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE WIND.xlsx';   //con www da problemi di sicurezza
+const URL = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE ENERGIA.xlsx';
 //CREA GLI ARRAY DA PASSARE NELLE 3 FUNZIONI DI CREAZIONE (questa viene chiamata nel caso ho file xlsx)
 function BindTable(jsondata, tableid) {//Function used to convert the JSON array to Html Table
 
@@ -944,12 +992,13 @@ function BindTable(jsondata, tableid) {//Function used to convert the JSON array
   }
 
      }
+  console.log("flag: "+flag);
 
   //console.log("energia: ");
       // console.log(dataSet);
   if(flag==0)
      ExportToTableByURL(URL1);
-  else{
+  else {
     createTableXLS(dataSet,dataSet1);
     createPieChartMeseXLS(dataSetMese);
     createPieChartGiornoXLS(dataSetGiorno);
@@ -1303,9 +1352,12 @@ if (this.status === 200) {    //andata a buon fine
 //Richiesta http del file XLS
 var myurl = 'https://playsoluzioniecomunicazione.it/dashboard/report/energia.xls';  //con www da problemi
 var myurl1 = 'https://playsoluzioniecomunicazione.it/dashboard/report/wind.xls';
+var myurl2 = 'https://salesdashboard.it/dashboard/report/energia.xls';  //con www da problemi
+var myurl3 = 'https://salesdashboard.it/dashboard/report/wind.xls';
 var oFile,sFilename,flag=0;
-//$(document).ready(getFileByURL(myurl));
+//$(document).ready(getFileByURL(myurl2));
 function getFileByURL(url){
+
 
 var request = new XMLHttpRequest();  //crea una richiesta http
 request.open('POST',url, true);
@@ -1393,7 +1445,7 @@ function filePickedURL() {
     //console.log(flag);
     if(flag==0){
       flag=1;
-      getFileByURL(myurl1)
+      getFileByURL(myurl3)
     }
     else{
       createTableXLS(dataSet,dataSet1);
@@ -1418,7 +1470,6 @@ var totMese=0,totGiorno=0;
 function createTableXLS(dataSet,dataSet1){
 
 var dataSetOff = [];
-
 var ufficiMese = [], n_ufficiMese = [], prev;
 
 
@@ -1464,7 +1515,9 @@ for(var i=0;i<ufficiMese.length;i++){
   dataSetOff[i] = [ufficiMese[i],n_ufficiGiorno2[i],n_ufficiMese[i]];
 }
 
+  $('#totMese').html("");
 $('#totMese').append(totMese);
+  $('#totGiorno').html("");
 $('#totGiorno').append(totGiorno);
 
 var myTable = $('#dataTable').dataTable();
@@ -1498,55 +1551,69 @@ myTable.dataTable( {
     $('#dataTable').DataTable().columns.adjust();
 
 }
-var energieMese = [];
+var energieMese = [],energieGiorno = [], n_energieM = [],n_energie2=[],n_energieG = [];
+var myPieChart;
 //CREA IL PIECHART MESE AVENDO L'ARRAY DEI BRAND DEL MESE
 function createPieChartMeseXLS(dataSet){
 
-var n_energie = [];
 var mese,prev;
 var ufficio;
+
+if(flag!=2){
 
   dataSet.sort();
 
 for ( var i = 0; i < dataSet.length; i++ ) {
   if ( dataSet[i] !== prev ) {
     energieMese.push(dataSet[i]);
-    n_energie.push(1);
+    n_energieM.push(1);
   }
   else
-    n_energie[n_energie.length-1]++;
+    n_energieM[n_energieM.length-1]++;
 
   prev = dataSet[i];
 }
+}
 
+
+  console.log("energiemese: "+energieMese);
+console.log("n_energie: "+n_energieM);
+
+
+  OBIETTIVO=0;
 for(var i=0;i<energieMese.length;i++){
   OBIETTIVO = OBIETTIVO + obiettivi[i];
 }
 
+
    var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
  var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
 
+
+$('#cardMese').html("");
 $('#cardMese').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totMese/OBIETTIVO*100).toFixed(1)+'%;" aria-valuenow="'+(totMese/OBIETTIVO*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totMese/OBIETTIVO*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
 
    for(var i=0;i<energieMese.length;i++){
        //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-
-       $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivi[i]*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivi[i]*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivi[i]*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
+       $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energieM[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%;" aria-valuenow="'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
    }
 
 
-$('#dashTitle').append('&nbsp;&nbsp;&nbsp;&nbsp;Obiettivo mese: '+OBIETTIVO+',&nbsp;&nbsp;&nbsp;brand: '+obiettivi[0]+','+obiettivi[1]+','+obiettivi[2]+','+obiettivi[3]+','+obiettivi[4]);
+
+$('#dashTitle').html("Sales Dashboard (esempio oggi: 17 Luglio)");
+$('#dashTitle').append('&nbsp;&nbsp;OBIETTIVI:&nbsp;&nbsp; brand: '+obiettivi[0]+','+obiettivi[1]+','+obiettivi[2]+','+obiettivi[3]+','+obiettivi[4] +'&nbsp;&nbsp;&nbsp;mese: '+OBIETTIVO);
 
 //console.log(obiettivi);
 
 var pieMese = document.getElementById("myPieChartMese").getContext('2d');
-var myPieChart = new Chart(pieMese, {
+myPieChart = new Chart(pieMese, {
       //type: 'doughnut',
   type: 'pie',
       data: {
         labels: energieMese,
+    destroy: true,   //eliminiamo la precedente tabella, molto importante
         datasets: [{
-          data: n_energie,
+          data: n_energieM,
           backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
           hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
           hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -1602,20 +1669,19 @@ var myPieChart = new Chart(pieMese, {
 
 //CREA IL PIECHART GIORNO AVENDO L'ARRAY DEI BRAND DEL GIORNO
 function createPieChartGiornoXLS(dataSet){
-//console.log(dataSet);
-var energieGiorno = [],n_energie = [],n_energie2=[];
+
 var mese,giorno,prev;
 var k=0;
 
-
+if(flag!=2){
 dataSet.sort();
 
 for ( var i = 0; i < dataSet.length; i++ ) {
   if ( dataSet[i] !== prev ) {
     energieGiorno.push(dataSet[i]);
-    n_energie.push(1);
+    n_energieG.push(1);
   } else {
-    n_energie[n_energie.length-1]++;
+    n_energieG[n_energieG.length-1]++;
   }
   prev = dataSet[i];
 }
@@ -1624,13 +1690,14 @@ for ( var i = 0; i < dataSet.length; i++ ) {
   if(energieMese[i] !== energieGiorno[k])
     n_energie2[i] = 0;
   else
-    n_energie2[i] = n_energie[k++];
+    n_energie2[i] = n_energieG[k++];
 }
-
+}
 
    var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
  var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
 
+$('#cardGiorno').html("");
 $('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
 
 
@@ -1641,8 +1708,8 @@ $('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar prog
 
 var pieGiorno = document.getElementById("myPieChartGiorno");
     var myPieChart = new Chart(pieGiorno, {
-      //type: 'doughnut',
-  type: 'pie',
+      type: 'doughnut',
+  //type: 'pie',
       data: {
         labels: energieMese,
         datasets: [{
@@ -1673,7 +1740,7 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
     }
       },
 
-       // cutoutPercentage: 50,   //spessore anello
+        cutoutPercentage: 30,   //spessore anello
      plugins: {
     datalabels: {
     formatter: (value, ctx) => {
@@ -1702,7 +1769,6 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
 }
 
 
-  </script>
 
 
 
@@ -1710,8 +1776,8 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
 
 
 
-<!--CSV FILE-->
-<script>
+//<!--CSV FILE-->
+
 /*
 var col_data = 0;
 var col_uff = 1;
@@ -2035,13 +2101,123 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
       },
    });
 }*/
-</script>
 
-<script>
 function showPage() {
 document.getElementById("loader").style.display = "none";
 document.getElementById("mainDiv").style.display = "block";
+
+
 }
+
+function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : evt.keyCode;
+if (charCode != 46 && charCode > 31
+  && (charCode < 48 || charCode > 57))
+  return false;
+return true;
+}
+
+
+
+function setObj() //modal
+{
+obiettivi[0] = document.getElementById('inputEni').valueAsNumber;
+obiettivi[1] = document.getElementById('inputHeracomm').valueAsNumber;
+obiettivi[2] = document.getElementById('inputIberdrola').valueAsNumber;
+obiettivi[3] = document.getElementById('inputSinergy').valueAsNumber;
+obiettivi[4] = document.getElementById('inputWind').valueAsNumber;
+
+    sendMyData(obiettivi[0],obiettivi[1],obiettivi[2],obiettivi[3],obiettivi[4]);
+
+flag=2;
+createPieChartMeseXLS(dataSetMese);
+createPieChartGiornoXLS(dataSetGiorno);
+
+}
+
+
+
+function getData() {
+
+   console.log("chiamo getData e obiettivi: "+obiettivi);
+
+  $.ajax({
+    url: 'getObiettivi.php',
+    type: 'GET',
+    dataType: 'JSON',
+    success: function(response){
+        var len = response.length;
+        var eni,heracomm,iberdrola,sinergy,wind;
+
+        for(i=0; i<len; i++){
+             eni = Math.floor(response[i].eni);
+
+             heracomm = Number(response[i].heracomm);
+             iberdrola = Number(response[i].iberdrola);
+             sinergy = Number(response[i].sinergy);
+             wind = Number(response[i].wind);
+        }
+
+           obiettivi[0] = eni;
+           obiettivi[1] = heracomm;
+           obiettivi[2] = iberdrola;
+           obiettivi[3] = sinergy;
+           obiettivi[4] = wind;
+    }
+});
+
+
+
+
+}
+
+
+
+
+  //$sql = "INSERT INTO obiettivi VALUES ('00-00-0000',2,3,4,5,6)";  //questa scritta direttamente su phpmyadmin
+  //$sql = "INSERT INTO obiettivi VALUES ('".$_POST["inputEni"]."','".$_POST["inputEni"]."','".$_POST["inputHeracomm"]."','".$_POST["inputIberdrola"]."','".$_POST["inputSinergy"]."','".$_POST["inputWind"]."')";
+  //$result = mysqli_query($conn,$sql);
+function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
+{
+
+
+      var today = new Date();
+      //var dd = String(today.getDate()).padStart(2, '0');
+      //var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      //var yyyy = today.getFullYear();
+
+      //today = yyyy + '-' + mm + '-' + dd;
+
+          $.ajax({
+      url: "sendObiettivi.php",
+      type: "POST", //send it through get method
+      data: {
+        date: today.getDate(),
+        eni: eni,
+        heracomm: heracomm,
+        iberdrola: iberdrola,
+        sinergy: sinergy,
+        wind: wind
+
+      },
+      success: function(response) {
+        //Do Something
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+
+}
+
+
+
+
+
+
+
+
 </script>
 
 </body>
