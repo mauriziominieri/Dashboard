@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Obiettivi">
+<meta name="author" content="Play">
+
+<title>Gierre - Obiettivi</title>
+
+
+
+
+<!-- Custom fonts for this template-->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for the TABLE -->
+<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+<style>
+
+ .obj-img {
+/* The image used */
+background-image: url("https://banner2.cleanpng.com/20180428/vke/kisspng-personal-goal-setting-thought-skill-5ae4d32b78f9c5.3349232515249457074955.jpg");
+
+min-height: 380px;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+
+</style>
+
+
+<style>
+ .disabled {
+     color: gray;
+     pointer-events: none;
+     cursor: default;
+ }
+</style>
+
+
+</head>
+<body class="bg-gradient-info">
+
+
+
+   <!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#objModal">
+Inserisci obiettivi
+</button>-->
+
+<!-- Modal -->
+<!--<div class="modal fade" id="objModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+     <h5 class="modal-title" id="exampleModalLabel">OBIETTIVI MESE</h5>
+     <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+
+  <div class="col-md-12 pd-10">
+   <!--<h3>Java Script Number Only area</h3>
+     <div class="col-md-2"><h4>Type only Number</h4> </div>
+     <div class="col-md-12"><INPUT class="col-md-12" id="inputEni" placeholder="ENI" onkeypress="return isNumberKey(event)"    name="inputEni"/> </div><br>
+   <div class="col-md-12"><INPUT class="col-md-12" id="inputHeracomm" placeholder="HERACOMM" onkeypress="return isNumberKey(event)"   type="number" name="inputHeracomm"/> </div><br>
+     <div class="col-md-12"><INPUT class="col-md-12" id="inputIberdrola" placeholder="IBERDROLA" onkeypress="return isNumberKey(event)"   type="number" name="inputIberdrola"/> </div><br>
+   <div class="col-md-12"><INPUT class="col-md-12" id="inputSinergy" placeholder="SINERGY" onkeypress="return isNumberKey(event)"   type="number" name="inputSinergy"/> </div><br>
+    <div class="col-md-12"><INPUT class="col-md-12" id="inputWind" placeholder="WIND" onkeypress="return isNumberKey(event)"   type="number" name="inputWind"/> </div>
+   </div>
+   </div>
+   <div class="modal-footer">
+     <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+     <button type="button" class="btn btn-primary" onclick="setObj()" data-dismiss="modal">Conferma</button>
+   </div>
+ </div>
+</div>
+</div>-->
+
+
+
+
+<div class="container">
+
+ <!-- Outer Row -->
+ <div class="row justify-content-center">
+
+   <div class="col-xl-10 col-lg-12 col-md-9">
+
+     <div class="card o-hidden border-0 shadow-lg my-5">
+       <div class="card-body p-0">
+         <!-- Nested Row within Card Body -->
+         <div class="row">
+          <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>-->
+           <div class="col-lg-6 d-none d-lg-block obj-image" style=""></div>
+           <div class="col-lg-6">
+             <div class="p-5">
+               <div class="text-center">
+                 <h1 class="h4 text-gray-900 mb-4">Seleziona gli obiettivi!</h1>
+               </div>
+               <form data-toggle="validator" role="form" class="user">
+                 <div class="form-group has-feedback">
+                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputEni" aria-describedby="ENI_obj" placeholder="ENI" name="inputEni" required>
+                 </div>
+                 <div class="form-group has-feedback">
+                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputHeracomm" aria-describedby="HERACOMM_obj" placeholder="HERACOMM" name="inputHeracomm" required>
+                 </div>
+                  <div class="form-group">
+                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputIberdrola" aria-describedby="IBERDROLA_obj" placeholder="IBERDROLA" name="inputIberdrola" required>
+                 </div>
+                  <div class="form-group">
+                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputSinergy" aria-describedby="SINERGY_obj" placeholder="SINERGY" name="inputSinergy" required>
+                 </div>
+                  <div class="form-group">
+                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputWind" aria-describedby="WIND_obj" placeholder="WIND" name="inputWind" required>
+                 </div>
+                 <!--<div class="form-group">
+                   <div class="custom-control custom-checkbox small">
+                     <input type="checkbox" class="custom-control-input" id="customCheck">
+                     <label class="custom-control-label" for="customCheck">Remember Me</label>
+                   </div>
+                 </div>-->
+
+
+
+         <!--<button type="submit" class="btn btn-primary btn-user btn-block" onclick="setObj()">    <a onclick="setObj()">Conferma</a>
+
+            <!--</button>-->
+
+                 <a id="confermaButton" href="https://salesdashboard.it/dashboard/dashboard/index.html" class="btn btn-primary btn-user btn-block disabled" onclick="setObj()" role="button"> <!--class="btn btn-primary btn-user btn-block" onclick="setObj()">-->
+                   Conferma
+                 </a>
+
+
+
+                 <!--<hr>
+                 <a href="index.html" class="btn btn-google btn-user btn-block">
+                   <i class="fab fa-google fa-fw"></i> Login with Google
+                 </a>
+                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                   <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                 </a>-->
+
+
+               </form>
+
+
+              <!-- <hr>
+               <div class="text-center">
+                 <a class="small" href="forgot-password.html">Forgot Password?</a>
+               </div>
+               <div class="text-center">
+                 <a class="small" href="register.html">Create an Account!</a>
+               </div>-->
+
+
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+   </div>
+
+ </div>
+
+</div>
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+
+
+<!-- Per TABLE -->
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+<!--<script src="jquery-1.10.2.min.js" type="text/javascript"></script>-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
+
+
+<!--per le labels piechart-->
+<script src="https://raw.githubusercontent.com/emn178/chartjs-plugin-labels/master/src/chartjs-plugin-labels.js"></script>
+
+
+
+
+
+<script>
+function setObj() //modal
+{
+   var obiettivi=[];
+   obiettivi[0] = document.getElementById('inputEni').valueAsNumber;
+   obiettivi[1] = document.getElementById('inputHeracomm').valueAsNumber;
+   obiettivi[2] = document.getElementById('inputIberdrola').valueAsNumber;
+   obiettivi[3] = document.getElementById('inputSinergy').valueAsNumber;
+   obiettivi[4] = document.getElementById('inputWind').valueAsNumber;
+       sendMyData(obiettivi[0],obiettivi[1],obiettivi[2],obiettivi[3],obiettivi[4]);
+
+}
+
+
+
+
+
+
+
+   //$sql = "INSERT INTO obiettivi VALUES ('00-00-0000',2,3,4,5,6)";  //questa scritta direttamente su phpmyadmin
+   //$sql = "INSERT INTO obiettivi VALUES ('".$_POST["inputEni"]."','".$_POST["inputEni"]."','".$_POST["inputHeracomm"]."','".$_POST["inputIberdrola"]."','".$_POST["inputSinergy"]."','".$_POST["inputWind"]."')";
+   //$result = mysqli_query($conn,$sql);
+ function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
+{
+
+
+       var today = new Date();
+       //var dd = String(today.getDate()).padStart(2, '0');
+       //var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+       //var yyyy = today.getFullYear();
+
+       //today = yyyy + '-' + mm + '-' + dd;
+
+           $.ajax({
+       url: "sendObiettivi.php",
+       type: "POST", //send it through get method
+       data: {
+         date: today.getDate(),
+         eni: eni,
+         heracomm: heracomm,
+         iberdrola: iberdrola,
+         sinergy: sinergy,
+         wind: wind
+
+       },
+       success: function(response) {
+         console.log("Dati inseriti: "+eni+" "+heracomm+" ecc");
+       },
+       error: function(xhr) {
+         //Do Something to handle error
+       }
+     });
+
+}
+
+ function checkEmpty(){
+
+    if(document.getElementById('inputEni').value=="" || document.getElementById('inputEni').value==null ||
+      document.getElementById('inputHeracomm').value=="" || document.getElementById('inputHeracomm').value==null ||
+      document.getElementById('inputIberdrola').value=="" || document.getElementById('inputIberdrola').value==null ||
+      document.getElementById('inputSinergy').value=="" || document.getElementById('inputSinergy').value==null ||
+      document.getElementById('inputWind').value=="" || document.getElementById('inputWind').value==null){
+
+
+      console.log("qualcuno vuoto");
+      $("#confermaButton").addClass("disabled");
+   }
+   else{
+       console.log("tutti pieni");
+       $("#confermaButton").removeClass("disabled");
+   }
+
+ }
+
+ function isNumberKey(evt)
+{
+ var charCode = (evt.which) ? evt.which : evt.keyCode;
+ if (charCode != 46 && charCode > 31  && (charCode < 48 || charCode > 57))
+   return false;
+ return true;
+}
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
