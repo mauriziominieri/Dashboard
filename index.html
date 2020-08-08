@@ -1,145 +1,145 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+	<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+  <title>Gierre - Dashboard</title> 
+	
+	
+	
 
-<title>Gierre - Dashboard</title>
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-
-
-<!-- Custom fonts for this template-->
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-<!-- Custom styles for this template-->
-<link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-<!-- Custom styles for the TABLE -->
-<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-
-
-
-
-<!--LOADING WHEEL-->
-
-
-<style>
-
-
-
-
-/* Spinner Wrapper */
+  <!-- Custom styles for the TABLE -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+	
+	
+	
+	
+	
+	<!--LOADING WHEEL-->
+	
+	
+	<style>
+		
+		
+		
+		
+		/* Spinner Wrapper */
 .loader {
-width: 100vw;
-height: 100vh;
-background: #fff;
-position: fixed;
-top: 0;
-left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .loader-inner {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
 /* Spinner */
 .lds-roller {
-display: inline-block;
-position: relative;
-width: 64px;
-height: 64px;
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
 }
 .lds-roller div {
-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-transform-origin: 32px 32px;
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
 }
 .lds-roller div:after {
-content: " ";
-display: block;
-position: absolute;
-width: 6px;
-height: 6px;
-border-radius: 50%;
-background: #333;
-margin: -3px 0 0 -3px;
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #333;
+    margin: -3px 0 0 -3px;
 }
 .lds-roller div:nth-child(1) {
-animation-delay: -0.036s;
+    animation-delay: -0.036s;
 }
 .lds-roller div:nth-child(1):after {
-top: 50px;
-left: 50px;
+    top: 50px;
+    left: 50px;
 }
 .lds-roller div:nth-child(2) {
-animation-delay: -0.072s;
+    animation-delay: -0.072s;
 }
 .lds-roller div:nth-child(2):after {
-top: 54px;
-left: 45px;
+    top: 54px;
+    left: 45px;
 }
 .lds-roller div:nth-child(3) {
-animation-delay: -0.108s;
+    animation-delay: -0.108s;
 }
 .lds-roller div:nth-child(3):after {
-top: 57px;
-left: 39px;
+    top: 57px;
+    left: 39px;
 }
 .lds-roller div:nth-child(4) {
-animation-delay: -0.144s;
+    animation-delay: -0.144s;
 }
 .lds-roller div:nth-child(4):after {
-top: 58px;
-left: 32px;
+    top: 58px;
+    left: 32px;
 }
 .lds-roller div:nth-child(5) {
-animation-delay: -0.18s;
+    animation-delay: -0.18s;
 }
 .lds-roller div:nth-child(5):after {
-top: 57px;
-left: 25px;
+    top: 57px;
+    left: 25px;
 }
 .lds-roller div:nth-child(6) {
-animation-delay: -0.216s;
+    animation-delay: -0.216s;
 }
 .lds-roller div:nth-child(6):after {
-top: 54px;
-left: 19px;
+    top: 54px;
+    left: 19px;
 }
 .lds-roller div:nth-child(7) {
-animation-delay: -0.252s;
+    animation-delay: -0.252s;
 }
 .lds-roller div:nth-child(7):after {
-top: 50px;
-left: 14px;
+    top: 50px;
+    left: 14px;
 }
 .lds-roller div:nth-child(8) {
-animation-delay: -0.288s;
+    animation-delay: -0.288s;
 }
 .lds-roller div:nth-child(8):after {
-top: 45px;
-left: 10px;
+    top: 45px;
+    left: 10px;
 }
 @keyframes lds-roller {
-0% {
-    transform: rotate(0deg);
-}
-100% {
-    transform: rotate(360deg);
-}
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -147,607 +147,555 @@ left: 10px;
 /*
 
 p.lead {
-text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1)
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1)
 }
 
 .btn-outline-light:hover, .btn-outline-light:focus {
-color: #de6262 !important;
-
+    color: #de6262 !important;
+  
 }*/
 
 
-/*Add animation to "page content" */
+ /*Add animation to "page content" */
 .animate-bottom {
-position: relative;
--webkit-animation-name: animatebottom;
--webkit-animation-duration: 1s;
-animation-name: animatebottom;
-animation-duration: 1s
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
 }
 
 @-webkit-keyframes animatebottom {
-from { bottom:-100px; opacity:0 }
-to { bottom:0px; opacity:1 }
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
 }
 
-@keyframes animatebottom {
-from{ bottom:-100px; opacity:0 }
-to{ bottom:0; opacity:1 }
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 </head>
 
-<body id="page-top" onload="getData()">
-
+<body id="page-top" onload="getData()"> 
+	
 
 
 <!-- Loading Spinner Wrapper-->
 <div class="loader text-center" id="loader">
-<div class="loader-inner">
+    <div class="loader-inner">
 
-    <!-- Animated Spinner -->
-    <div class="lds-roller mb-3">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <!-- Animated Spinner -->
+        <div class="lds-roller mb-3">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Spinner Description Text [For Demo Purpose]-->
+        <h4 class="text-uppercase font-weight-bold">Ciao !</h4>
+        <p class="font-italic text-muted">Attendi un attimo</p>
     </div>
-
-    <!-- Spinner Description Text [For Demo Purpose]-->
-    <h4 class="text-uppercase font-weight-bold">Ciao !</h4>
-    <p class="font-italic text-muted">Attendi un attimo</p>
 </div>
-</div>
-
+	
 <div style="display:none;" id="mainDiv" class="animate-bottom">
+  
 
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+    <!-- Sidebar -->
+    <!--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">-->
+	<!--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand 
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-0">
+         
+			<img src="img/logoGierre.jpg" width="100%">
+        </div>
+        <!--<div class="sidebar-brand-text mx-3">Gierre</div>
+      </a>
 
-<!-- Sidebar -->
-<!--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">-->
-<!--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-  <!-- Sidebar - Brand
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-0">
+      <!-- Divider 
+      <hr class="sidebar-divider my-0">
 
-  <img src="img/logoGierre.jpg" width="100%">
-    </div>
-    <!--<div class="sidebar-brand-text mx-3">Gierre</div>
-  </a>
+      <!-- Nav Item - Dashboard 
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
 
-  <!-- Divider
-  <hr class="sidebar-divider my-0">
+      <!-- Divider 
+      <hr class="sidebar-divider">
 
-  <!-- Nav Item - Dashboard
-  <li class="nav-item active">
-    <a class="nav-link" href="index.html">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
-  </li>
-
-  <!-- Divider
-  <hr class="sidebar-divider">
-
-  <!-- Heading
-  <div class="sidebar-heading">
-    Interface
-  </div>
-
-  <!-- Nav Item - Pages Collapse Menu
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="404.html" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-      <i class="fas fa-fw fa-cog"></i>
-      <span>Label 1</span>
-    </a>
-    <!--<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Custom Components:</h6>
-        <a class="collapse-item" href="buttons.html">Buttons</a>
-        <a class="collapse-item" href="cards.html">Cards</a>
+      <!-- Heading 
+      <div class="sidebar-heading">
+        Interface
       </div>
-    </div>
-  </li>
 
-  <!-- Nav Item - Utilities Collapse Menu
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-      <i class="fas fa-fw fa-wrench"></i>
-      <span>Label 2</span>
-    </a>
-    <!--<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Custom Utilities:</h6>
-        <a class="collapse-item" href="utilities-color.html">Colors</a>
-        <a class="collapse-item" href="utilities-border.html">Borders</a>
-        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-        <a class="collapse-item" href="utilities-other.html">Other</a>
-      </div>
-    </div>
-  </li>
-
-  <!-- Divider
-  <hr class="sidebar-divider">
-
-  <!-- Heading
-  <div class="sidebar-heading">
-    Addons
-  </div>
-
-  <!-- Nav Item - Pages Collapse Menu
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-      <i class="fas fa-fw fa-folder"></i>
-      <span>Label 3</span>
-    </a>
-    <!--<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Login Screens:</h6>
-        <a class="collapse-item" href="login.html">Login</a>
-        <a class="collapse-item" href="register.html">Register</a>
-        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-        <div class="collapse-divider"></div>
-        <h6 class="collapse-header">Other Pages:</h6>
-        <a class="collapse-item" href="404.html">404 Page</a>
-        <a class="collapse-item" href="blank.html">Blank Page</a>
-      </div>
-    </div>
-  </li>
-
-  <!-- Nav Item - Charts
-  <li class="nav-item">
-    <a class="nav-link" href="404.html">
-      <i class="fas fa-fw fa-chart-area"></i>
-      <span>Label 4</span></a>
-  </li>
-
-  <!-- Nav Item - Tables
-  <li class="nav-item">
-    <a class="nav-link" href="404.html">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Label 5</span></a>
-  </li>
-
-  <!-- Divider
-  <hr class="sidebar-divider d-none d-md-block">
-
-  <!-- Sidebar Toggler (Sidebar)
-  <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-  </div>
-
-</ul>
--->
-<!-- End of Sidebar -->
-
-<!-- Content Wrapper -->
-<div id="content-wrapper" class="d-flex flex-column">
-
-  <!-- Main Content -->
-  <div id="content">
-
-    <!-- Topbar -->
-  <!-- <br><br>-->
-
-   <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-      <!-- Sidebar Toggle (Topbar)
-      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
-      </button>
-
-      <!-- Topbar Search -->
-      <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-          <input type="text" class="form-control bg-light border-0 small" placeholder="Cerca..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search fa-sm"></i>
-            </button>
+      <!-- Nav Item - Pages Collapse Menu
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="404.html" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Label 1</span>
+        </a>
+        <!--<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
           </div>
         </div>
-      </form>-->
+      </li>
 
-      <!-- Topbar Navbar -->
-      <!--<ul class="navbar-nav ml-auto">
-
-        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-        <!--<li class="nav-item dropdown no-arrow d-sm-none">
-          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-search fa-fw"></i>
-          </a>
-          <!-- Dropdown - Messages
-          <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-            <form class="form-inline mr-auto w-100 navbar-search">
-              <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
+      <!-- Nav Item - Utilities Collapse Menu 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Label 2</span>
+        </a>
+        <!--<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="utilities-color.html">Colors</a>
+            <a class="collapse-item" href="utilities-border.html">Borders</a>
+            <a class="collapse-item" href="utilities-animation.html">Animations</a>
+            <a class="collapse-item" href="utilities-other.html">Other</a>
           </div>
-        </li>-->
+        </div>
+      </li>
 
-        <!-- Nav Item - Alerts -->
-        <!--<li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell fa-fw"></i>
-            <!-- Counter - Alerts
-            <span class="badge badge-danger badge-counter">3+</span>
-          </a>
-          <!-- Dropdown - Alerts
-          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">
-              Alerts Center
-            </h6>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="mr-3">
-                <div class="icon-circle bg-primary">
-                  <i class="fas fa-file-alt text-white"></i>
-                </div>
-              </div>
-              <div>
-                <div class="small text-gray-500">December 12, 2019</div>
-                <span class="font-weight-bold">A new monthly report is ready to download!</span>
-              </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="mr-3">
-                <div class="icon-circle bg-success">
-                  <i class="fas fa-donate text-white"></i>
-                </div>
-              </div>
-              <div>
-                <div class="small text-gray-500">December 7, 2019</div>
-                $290.29 has been deposited into your account!
-              </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="mr-3">
-                <div class="icon-circle bg-warning">
-                  <i class="fas fa-exclamation-triangle text-white"></i>
-                </div>
-              </div>
-              <div>
-                <div class="small text-gray-500">December 2, 2019</div>
-                Spending Alert: We've noticed unusually high spending for your account.
-              </div>
-            </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+      <!-- Divider 
+      <hr class="sidebar-divider">
+
+      <!-- Heading 
+      <div class="sidebar-heading">
+        Addons
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Label 3</span>
+        </a>
+        <!--<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Login Screens:</h6>
+            <a class="collapse-item" href="login.html">Login</a>
+            <a class="collapse-item" href="register.html">Register</a>
+            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Other Pages:</h6>
+            <a class="collapse-item" href="404.html">404 Page</a>
+            <a class="collapse-item" href="blank.html">Blank Page</a>
           </div>
-        </li>-->
+        </div>
+      </li>
 
-        <!-- Nav Item - Messages
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-            <!-- Counter - Messages
-            <span class="badge badge-danger badge-counter">7</span>
-          </a>
-          <!-- Dropdown - Messages
-          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">
-              Message Center
-            </h6>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="dropdown-list-image mr-3">
-                <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                <div class="status-indicator bg-success"></div>
+      <!-- Nav Item - Charts 
+      <li class="nav-item">
+        <a class="nav-link" href="404.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Label 4</span></a>
+      </li>
+
+      <!-- Nav Item - Tables 
+      <li class="nav-item">
+        <a class="nav-link" href="404.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Label 5</span></a>
+      </li>
+
+      <!-- Divider 
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) 
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+	  -->
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+      
+        <!-- Topbar -->
+      <!-- <br><br>-->
+    
+       <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) 
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Cerca..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
               </div>
-              <div class="font-weight-bold">
-                <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                <div class="small text-gray-500">Emily Fowler · 58m</div>
+            </div>
+          </form>-->
+
+          <!-- Topbar Navbar -->
+          <!--<ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <!--<li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages 
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="dropdown-list-image mr-3">
-                <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                <div class="status-indicator"></div>
+            </li>-->
+
+            <!-- Nav Item - Alerts -->
+            <!--<li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts 
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts 
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-              <div>
-                <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                <div class="small text-gray-500">Jae Chun · 1d</div>
+            </li>-->
+
+            <!-- Nav Item - Messages 
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages 
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages 
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="dropdown-list-image mr-3">
-                <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                <div class="status-indicator bg-warning"></div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>-->
+
+            <!-- Nav Item - User Information -->
+           <!-- <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Utente 1</span>
+                <img class="img-profile rounded-circle" src="https://static.vecteezy.com/system/resources/previews/000/648/977/non_2x/vector-play-icon-symbol-sign.jpg">
+              </a>
+              <!-- Dropdown - User Information 
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+					Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
               </div>
-              <div>
-                <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-              </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <div class="dropdown-list-image mr-3">
-                <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                <div class="status-indicator bg-success"></div>
-              </div>
-              <div>
-                <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                <div class="small text-gray-500">Chicken the Dog · 2w</div>
-              </div>
-            </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-          </div>
-        </li>
+            </li>
 
-        <div class="topbar-divider d-none d-sm-block"></div>-->
+          </ul>
+        </nav>-->
 
-        <!-- Nav Item - User Information -->
-       <!-- <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Utente 1</span>
-            <img class="img-profile rounded-circle" src="https://static.vecteezy.com/system/resources/previews/000/648/977/non_2x/vector-play-icon-symbol-sign.jpg">
-          </a>
-          <!-- Dropdown - User Information
-          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">
-              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-      Profile
-            </a>
-            <a class="dropdown-item" href="#">
-              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-              Settings
-            </a>
-            <a class="dropdown-item" href="#">
-              <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-              Activity Log
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-              Logout
-            </a>
-          </div>
-        </li>
+        <!-- End of Topbar -->
 
-      </ul>
-    </nav>-->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-    <!-- End of Topbar -->
-
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-      <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 id="dashTitle" class="h3 mb-0 text-gray-800"></h1>
-        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-upload fa-sm text-white-50"></i>
-    <input type="file" id="excelfile"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  />
-    Carica Excel
-  </a>-->
-
-
-
-
-  <!-- Button trigger modal -->
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 id="dashTitle" class="h3 mb-0 text-gray-800"></h1>
+            <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-upload fa-sm text-white-50"></i> 
+				<input type="file" id="excelfile"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  />
+				Carica Excel
+			</a>-->
+			  
+			  
+			  
+			  
+			<!-- Button trigger modal -->
+    <!--        
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#objModal">
-Inserisci obiettivi
+  Inserisci obiettivi
 </button>
 
-<!-- Modal -->
+<!-- Modal --><!--
 <div class="modal fade" id="objModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-  <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">OBIETTIVI MESE</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-
- <div class="col-md-12 pd-10">
-  <!--<h3>Java Script Number Only area</h3>
-    <div class="col-md-2"><h4>Type only Number</h4> </div> -->
-    <div class="col-md-12"><INPUT class="col-md-12" id="inputEni" placeholder="ENI" onkeypress="return isNumberKey(event)"   type="number" name="inputEni"/> </div><br>
-  <div class="col-md-12"><INPUT class="col-md-12" id="inputHeracomm" placeholder="HERACOMM" onkeypress="return isNumberKey(event)"   type="number" name="inputHeracomm"/> </div><br>
-    <div class="col-md-12"><INPUT class="col-md-12" id="inputIberdrola" placeholder="IBERDROLA" onkeypress="return isNumberKey(event)"   type="number" name="inputIberdrola"/> </div><br>
-  <div class="col-md-12"><INPUT class="col-md-12" id="inputSinergy" placeholder="SINERGY" onkeypress="return isNumberKey(event)"   type="number" name="inputSinergy"/> </div><br>
-   <div class="col-md-12"><INPUT class="col-md-12" id="inputWind" placeholder="WIND" onkeypress="return isNumberKey(event)"   type="number" name="inputWind"/> </div>
-  </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
-    <button type="button" class="btn btn-primary" onclick="setObj()" data-dismiss="modal">Conferma</button>
-  </div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">OBIETTIVI MESE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
-      <!-- Content Row -->
-<!--         <div class="row">
-
-        <!-- Earnings (Monthly) Card Example
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Dato 1</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">dato 1</div>
-                </div>
-                <div class="col-auto">
-                  <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                </div>
-              </div>
-            </div>
+      <div class="modal-body">
+        
+		 <div class="col-md-12 pd-10"> 
+			
+	    	<div class="col-md-12"><INPUT class="col-md-12" id="inputEni" placeholder="ENI" onkeypress="return isNumberKey(event)"   type="number" name="inputEni"/> </div><br>
+			<div class="col-md-12"><INPUT class="col-md-12" id="inputHeracomm" placeholder="HERACOMM" onkeypress="return isNumberKey(event)"   type="number" name="inputHeracomm"/> </div><br>
+		    <div class="col-md-12"><INPUT class="col-md-12" id="inputIberdrola" placeholder="IBERDROLA" onkeypress="return isNumberKey(event)"   type="number" name="inputIberdrola"/> </div><br>
+			<div class="col-md-12"><INPUT class="col-md-12" id="inputSinergy" placeholder="SINERGY" onkeypress="return isNumberKey(event)"   type="number" name="inputSinergy"/> </div><br>
+			 <div class="col-md-12"><INPUT class="col-md-12" id="inputWind" placeholder="WIND" onkeypress="return isNumberKey(event)"   type="number" name="inputWind"/> </div>
+    	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn btn-primary" onclick="setObj()" data-dismiss="modal">Conferma</button>
+      </div>
+    </div>
+  </div>
+</div>
+		  -->
+			  
+			  
+			  
+			  
+			  
+			  
+			  
           </div>
-        </div>
+ 
+          <!-- Content Row -->
+ <!--         <div class="row">
 
-        <!-- Earnings (Monthly) Card Example
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Dato 2</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">dato 2</div>
-                </div>
-                <div class="col-auto">
-                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Dato 3</div>
+            <!-- Earnings (Monthly) Card Example
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                    <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">dato 3</div>
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Dato 1</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">dato 1</div>
                     </div>
-                    <div class="col">
-                      <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-                <div class="col-auto">
-                  <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Pending Requests Card Example
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Dato 4</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">dato 4</div>
+            <!-- Earnings (Monthly) Card Example
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Dato 2</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">dato 2</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-auto">
-                  <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Dato 3</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">dato 3</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Dato 4</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">dato 4</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 -->
-
+ 
 <div class="row h-100">
-<!--sm=cell md=ipad lg=ipad Pro xl=desktop. Di default sono impostati a 12 cioè l'intera larghezza display, a 6 metà larghezza e così via-->
-<div class="col-xl-6">
+  <!--sm=cell md=ipad lg=ipad Pro xl=desktop. Di default sono impostati a 12 cioè l'intera larghezza display, a 6 metà larghezza e così via-->
+  <div class="col-xl-6">
 
-<div class="row h-50">
+  <div class="row h-50">
 
-  <div class="col-lg-6">
-    <!-- Basic Card Example -->
-    <div id="cardMeseDiv" class="card shadow mb-4" style="height: 94%;">
-      <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Totale Inserito Mese:<text style="margin-left:5%" id="totMese"></text></h6>
-      </div>
-      <div id="cardMese" class="card-body">
-        <!--Heracom <br> Wind <br> Sinergy <br> Heracom <br> Wind <br> Sinergy <br> Heracom <br> Iberdrola <br> <strong>Sinergy</strong> Sinergy <br> Heracom <br> Wind Sinergy <br> Heracom <br> Wind <br>Sinergy <br> Heracom <br> Wind <br>-->
-      </div>
-    </div>
-</div>
-
-
-<div class="col-lg-6" >
-<!-- Pie Chart Mese -->
-  <div id="pieMeseDiv" class="card shadow mb-4" style="height: 94%;">
-
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Totale Inserito Mese</h6>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+      <div class="col-lg-6">
+        <!-- Basic Card Example -->
+        <div id="cardMeseDiv" class="card shadow mb-4" style="height: 94%;">
+          <div class="card-header py-3">
+            <h5 class="m-0 font-weight-bold text-primary">Totale Inserito Mese:<text style="margin-left:3%; font-size:130%" id="totMese"></text></h5>
+          </div>
+          <div id="cardMese" class="card-body">
+            <!--Heracom <br> Wind <br> Sinergy <br> Heracom <br> Wind <br> Sinergy <br> Heracom <br> Iberdrola <br> <strong>Sinergy</strong> Sinergy <br> Heracom <br> Wind Sinergy <br> Heracom <br> Wind <br>Sinergy <br> Heracom <br> Wind <br>-->
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="card-body">
-        <canvas id="myPieChartMese"></canvas>
-    </div>
-  </div>
 
-
-
-
-
-</div>
-
-</div>
-
-
-<div class="row h-50">
-<div class="col-lg-6">
-
-    <!-- Basic Card Example -->
-    <div id="cardGiornoDiv" class="card shadow mb-4" style="height: 94%;">
-      <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Totale Inserito Giorno:<text style="margin-left:5%" id="totGiorno"></text></h6>
-      </div>
-      <div id="cardGiorno" class="card-body">
-       <!--Iberdrola <br> <strong>Sinergy</strong> <br> Heracom <br> Wind <br> Iberdrola <br> Sinergy <br> Heracom <br> Wind <br> Sinergy <br> Heracom-->
-
-   <!-- <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-  </div>  -->
-
-      </div>
-    </div>
-</div>
-<div class="col-lg-6">
-    <!-- Pie Chart -->
-      <div id="pieGiornoDiv" class="card shadow mb-4" style="height:94%;">
-        <!-- Card Header - Dropdown -->
+   <div class="col-lg-6" >
+    <!-- Pie Chart Mese -->
+      <div id="pieMeseDiv" class="card shadow mb-4" style="height: 94%;">
+       
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Totale Inserito Giorno</h6>
-          <div class="dropdown no-arrow">
+          <h5 class="m-0 font-weight-bold text-primary">Totale Inserito Mese</h5>
+          <!--<div class="dropdown no-arrow">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
             </a>
@@ -758,66 +706,118 @@ Inserisci obiettivi
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
+          </div>-->
+        </div>
+      
+        <div class="card-body">
+            <canvas id="myPieChartMese"></canvas>
+        </div>
+      </div>
+	   
+	   
+	   
+	   
+	   
+    </div>
+
+  </div>
+
+
+  <div class="row h-50">
+    <div class="col-lg-6">
+
+        <!-- Basic Card Example -->
+        <div id="cardGiornoDiv" class="card shadow mb-4" style="height: 94%;">
+          <div class="card-header py-3">
+            <h5 class="m-0 font-weight-bold text-primary">Totale Inserito Giorno:<text style="margin-left:3%; font-size:130%" id="totGiorno"></text></h5>
+          </div>
+          <div id="cardGiorno" class="card-body">
+           <!--Iberdrola <br> <strong>Sinergy</strong> <br> Heracom <br> Wind <br> Iberdrola <br> Sinergy <br> Heracom <br> Wind <br> Sinergy <br> Heracom-->
+			
+			 <!-- <div class="progress">
+			<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+			</div>  -->
+			  
           </div>
         </div>
-        <!-- Card Body -->
-        <div class="card-body">
-         <!--<div class="chart-pie pt-4 pb-2">-->
-            <canvas id="myPieChartGiorno"></canvas>
+    </div> 
+    <div class="col-lg-6">
+        <!-- Pie Chart -->
+          <div id="pieGiornoDiv" class="card shadow mb-4" style="height:94%;">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h5 class="m-0 font-weight-bold text-primary">Totale Inserito Giorno</h5>
+              <!--<div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                  <div class="dropdown-header">Dropdown Header:</div>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>-->
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+             <!--<div class="chart-pie pt-4 pb-2">-->
+                <canvas id="myPieChartGiorno"></canvas>
+				 
+              <!--<div id = "pieLegendGiorno" class="mt-4 text-center small">-->
+                <!--<span class="mr-2">
+                  <i class="fas fa-circle text-primary"></i> Dato 1
+                </span>
+                <span class="mr-2">
+                  <i class="fas fa-circle text-success"></i> Dato 2
+                </span>
+                <span class="mr-2">
+                  <i class="fas fa-circle text-info"></i> Dato 3
+                </span>-->
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <!--<div id = "pieLegendGiorno" class="mt-4 text-center small">-->
-            <!--<span class="mr-2">
-              <i class="fas fa-circle text-primary"></i> Dato 1
-            </span>
-            <span class="mr-2">
-              <i class="fas fa-circle text-success"></i> Dato 2
-            </span>
-            <span class="mr-2">
-              <i class="fas fa-circle text-info"></i> Dato 3
-            </span>-->
-          <!--</div>-->
+    </div>
+
+
+
+    <!-- DataTales Example -->
+      <div class="col-xl-6 col-md-12">
+		<div class="card shadow mb-4" style="height: 97%;">
+      <div class="card-header py-3">
+        <h5 class="m-0 font-weight-bold text-primary">Tabella</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable"  cellspacing="0" style="width: 100%! important;">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--<tfoot>
+              <tr>
+                <th>Ufficio</th>
+                <!--<th>Ruolo</th>-->
+                <!--<th>Luogo</th>-->
+                <!--<th>Anni</th>
+                
+              </tr>
+            </tfoot>-->
+            <tbody>
+
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
-
-</div>
-
-
-
-<!-- DataTales Example -->
-  <div class="col-xl-6 col-md-12">
-<div class="card shadow mb-4" style="height: 97%;">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Tabella</h6>
-  </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable"  cellspacing="0" style="width: 100%! important;">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <!--<tfoot>
-          <tr>
-            <th>Ufficio</th>
-            <!--<th>Ruolo</th>-->
-            <!--<th>Luogo</th>-->
-            <!--<th>Anni</th>
-
-          </tr>
-        </tfoot>-->
-        <tbody>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-</div>
 
 </div>
 
@@ -827,528 +827,545 @@ Inserisci obiettivi
 <!--CSV-->
 
 <div id='my_file_output'></div>
+          
 
-
-
+			
 
 
 <!--FINE CSV-->
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <!--<footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Play</span>
+          </div>
+        </div>
+      </footer>-->
+      <!-- End of Footer -->
+
     </div>
-    <!-- /.container-fluid -->
+    <!-- End of Content Wrapper -->
 
   </div>
-  <!-- End of Main Content -->
+  <!-- End of Page Wrapper -->
+	
+	
+</div>
+	<!-- End of Loading wheel Page -->
 
-  <!-- Footer -->
-  <!--<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-      <div class="copyright text-center my-auto">
-        <span>Copyright &copy; Play</span>
+	
+	
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="">Logout</a>
+        </div>
       </div>
     </div>
-  </footer>-->
-  <!-- End of Footer -->
-
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-
-</div>
-<!-- End of Loading wheel Page -->
-
-
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-    </div>
-    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-    <div class="modal-footer">
-      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-      <a class="btn btn-primary" href="">Logout</a>
-    </div>
   </div>
-</div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="vendor/chart.js/Chart.min.js"></script>
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"></script>
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
-<!--<script src="js/demo/chart-pie-demo.js"></script>--> <!--creo il mio da zero, se lo lascio c'è uno spiacevole effetto visivo di delay-->
+  <!-- Page level custom scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <!--<script src="js/demo/chart-area-demo.js"></script>-->
+  <!--<script src="js/demo/chart-pie-demo.js"></script>--> <!--creo il mio da zero, se lo lascio c'è uno spiacevole effetto visivo di delay-->
 
 
 
-<!-- Per TABLE -->
-<!-- Page level plugins -->
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <!-- Per TABLE -->
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="js/demo/datatables-demo.js"></script>
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
 
+	
+	
+	
+	<!--SCRIPT PER GLI XLSX E XLS FILES--->	
+	<!--<system.webServer>
+      <httpProtocol>
+        <customHeaders>
+          <add name="Access-Control-Allow-Origin" value="*" />
+          <add name="Access-Control-Allow-Headers" value="Content-Type" />
+          <add name="Access-Control-Allow-Methods" value="GET,POST,PUT,DELETE,OPTIONS" />
+         <add name="Access-Control-Allow-Credentials" value="true" />
+        </customHeaders>
+      </httpProtocol>
+  </system.webServer>-->
+	
+  
+  
+	<!--<script src="jquery-1.10.2.min.js" type="text/javascript"></script> -->  <!--QUESTO NON ESISTE-->
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
+	
+	
+	<!--per le labels piechart-->
+	<script src="https://raw.githubusercontent.com/emn178/chartjs-plugin-labels/master/src/chartjs-plugin-labels.js"></script>
+	
+	
+	
+	
+    <script>
+	
+		
+		
+	//var obiettivi = [22,376,200,752,336]; //tot: 1686
+	
+    var n_giorni_nel_mese,OBIETTIVO=0,flag=0;
+    var data,ufficio,brand,giorno,mese,currMese,currGiorno,brand,operatore;
+    var dataSet=[],dataSet1=[],dataSetGiorno=[],dataSetMese=[],obiettivi=[],columns=[];
+    var today = new Date();   //today = yyyy + '-' + mm + '-' + dd;
 
-
-
-<!--SCRIPT PER GLI XLSX E XLS FILES--->
-<!--<system.webServer>
-  <httpProtocol>
-    <customHeaders>
-      <add name="Access-Control-Allow-Origin" value="*" />
-      <add name="Access-Control-Allow-Headers" value="Content-Type" />
-      <add name="Access-Control-Allow-Methods" value="GET,POST,PUT,DELETE,OPTIONS" />
-     <add name="Access-Control-Allow-Credentials" value="true" />
-    </customHeaders>
-  </httpProtocol>
-</system.webServer>-->
-
-<script src="jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
-
-
-<!--per le labels piechart-->
-<script src="https://raw.githubusercontent.com/emn178/chartjs-plugin-labels/master/src/chartjs-plugin-labels.js"></script>
-
-
-
-
-<script>
-
-
-
-//var obiettivi = [22,376,200,752,336]; //tot: 1686
-var obiettivi = [];
-var n_giorni_nel_mese = 22,OBIETTIVO=0;
-var data,ufficio,giorno,mese,brand;
-var flag=0;
-var brand,columns=[];
-var dataSet = [],dataSet1 = [],dataSetGiorno=[],dataSetMese=[];
-
+      
 const URL1 = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE WIND.xlsx';   //con www da problemi di sicurezza
 const URL = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE ENERGIA.xlsx';
 //CREA GLI ARRAY DA PASSARE NELLE 3 FUNZIONI DI CREAZIONE (questa viene chiamata nel caso ho file xlsx)
 function BindTable(jsondata, tableid) {//Function used to convert the JSON array to Html Table
-
-     if(flag == 0)
-    columns = BindTableHeader(jsondata, tableid); //Gets all the column headings of Excel
-       else
-      brand = "Wind";
-
-  for (var i = 0; i < jsondata.length; i++) {
-        // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-
-    if(flag==0)
-     brand = jsondata[i][columns[3]];
-
-   if(jsondata[i][columns[1]]){
-     ufficio = jsondata[i][columns[1]];
-
-     giorno = jsondata[i][columns[0]].substr(0,2);
-     mese = jsondata[i][columns[0]].substr(3,2);
-
-     //console.log("mese: "+mese);
-     //console.log("ufficio: "+ufficio);
-     //console.log("brand: "+brand);
-
-     if(mese == 7)  {
-      dataSet.push(ufficio);
-        dataSetMese.push(brand);
-     }
-
-    if(mese == 7 && giorno==17) {
-      dataSet1.push(ufficio);
-      dataSetGiorno.push(brand);
-    }
-
-        // }
-
-  }
-
-     }
-  console.log("flag: "+flag);
-
-  //console.log("energia: ");
-      // console.log(dataSet);
-  if(flag==0)
-     ExportToTableByURL(URL1);
-  else {
-    createTableXLS(dataSet,dataSet1);
-    createPieChartMeseXLS(dataSetMese);
-    createPieChartGiornoXLS(dataSetGiorno);
-  }
+           
+	       if(flag == 0)
+				columns = BindTableHeader(jsondata, tableid); //Gets all the column headings of Excel
+           else
+			    brand = "Wind";
+		  
+		  for (var i = 0; i < jsondata.length; i++) {
+            // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+			 
+			  if(flag==0)
+				 brand = jsondata[i][columns[3]];
+			 
+			 if(jsondata[i][columns[1]]){
+				 ufficio = jsondata[i][columns[1]];
+			 
+				 giorno = jsondata[i][columns[0]].substr(0,2);
+				 mese = jsondata[i][columns[0]].substr(3,2);
+			  
+			   //console.log("mese: "+mese);
+			   //console.log("ufficio: "+ufficio);
+			   //console.log("brand: "+brand);
+				 
+				 if(mese == 7)  {                 
+					dataSet.push(ufficio); 
+				    dataSetMese.push(brand);
+				 }
+			
+				if(mese == 7 && giorno==17) {                     
+					dataSet1.push(ufficio); 
+					dataSetGiorno.push(brand);
+				}
+				 
+            // }
+			  
+		  }
+            
+         }
+		  console.log("flag: "+flag);
+	
+	 		//console.log("energia: ");
+	        // console.log(dataSet);
+			if(flag==0)
+				 ExportToTableByURL(URL1);
+			else {
+				createTableXLS(dataSet,dataSet1);
+				createPieChartMeseXLS(dataSetMese);
+				createPieChartGiornoXLS(dataSetGiorno);
+			}
 }
-
-
+		
+		
 //CREA GLI ARRAY DA PASSARE NELLE 3 FUNZIONI DI CREAZIONE
 /*function BindTable1(jsondata, tableid) {//Function used to convert the JSON array to Html Table
-
-   //if(columns[3]==null){
-     //columns[3] = "Brand Energia"
-  //	 brand = "Wind";
-    //   flag = 1;
-  //}
-
-  for (var i = 0; i < jsondata.length; i++) {
-        // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-
-     //if(flag==0)
-    // brand = jsondata[i][columns[3]];
-
-   if(jsondata[i][columns[1]]){
-     ufficio = jsondata[i][columns[1]];
-
-     giorno = jsondata[i][columns[0]].substr(0,2);
-     mese = jsondata[i][columns[0]].substr(3,2);
-
-     //console.log("mese: "+mese);
-     //console.log("ufficio: "+ufficio);
-     //console.log("brand: "+brand);
-
-     if(mese == 7)  {
-      dataSet.push(ufficio);
-        dataSetMese.push(brand);
-     }
-
-    if(mese == 7 && giorno==17) {
-      dataSet1.push(ufficio);
-      dataSetGiorno.push(brand);
-    }
-
-        // }
-
-  }
-
-     }
-
-//console.log("wind: ");
-//	 console.log(dataSet);
-
-
-createTableXLS(dataSet,dataSet1);
-createPieChartMeseXLS(dataSetMese);
-createPieChartGiornoXLS(dataSetGiorno);
+        
+		   //if(columns[3]==null){
+				 //columns[3] = "Brand Energia"
+			//	 brand = "Wind";
+			  //   flag = 1;
+			//}
+		  
+		  for (var i = 0; i < jsondata.length; i++) {
+            // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+			 
+			   //if(flag==0)
+				// brand = jsondata[i][columns[3]];
+			
+			 if(jsondata[i][columns[1]]){
+				 ufficio = jsondata[i][columns[1]];
+			 
+				 giorno = jsondata[i][columns[0]].substr(0,2);
+				 mese = jsondata[i][columns[0]].substr(3,2);
+			  
+			   //console.log("mese: "+mese);
+			   //console.log("ufficio: "+ufficio);
+			   //console.log("brand: "+brand);
+				 
+				 if(mese == 7)  {                 
+					dataSet.push(ufficio); 
+				    dataSetMese.push(brand);
+				 }
+			
+				if(mese == 7 && giorno==17) {                     
+					dataSet1.push(ufficio); 
+					dataSetGiorno.push(brand);
+				}
+				 
+            // }
+			  
+		  }
+            
+         }
+	
+	 //console.log("wind: ");
+	 	//	 console.log(dataSet);
+	
+	
+	createTableXLS(dataSet,dataSet1);
+	createPieChartMeseXLS(dataSetMese);
+	createPieChartGiornoXLS(dataSetGiorno);
 }*/
-
-
+     
+		
 //PRENDE LE COLONNE VOLUTE NEI DATI JSON
 function BindTableHeader(jsondata, tableid) {
-     var columnSet = [];
+         var columnSet = [];
+        
+         for (var i = 0; i < jsondata.length; i++) {
+             var rowHash = jsondata[i];
+             for (var key in rowHash) {
+				 //console.log("key: "+key);
+				 if(key == "Data creaz." || key == "Coordinatore CCeasy" || key == "Operatore CCeasy" || key == "Brand Energia"){
+					 if (rowHash.hasOwnProperty(key)) {
+						 if ($.inArray(key, columnSet) == -1) {
+							 columnSet.push(key);
 
-     for (var i = 0; i < jsondata.length; i++) {
-         var rowHash = jsondata[i];
-         for (var key in rowHash) {
-     //console.log("key: "+key);
-     if(key == "Data creaz." || key == "Coordinatore CCeasy" || key == "Operatore CCeasy" || key == "Brand Energia"){
-       if (rowHash.hasOwnProperty(key)) {
-         if ($.inArray(key, columnSet) == -1) {
-           columnSet.push(key);
-
+						 }
+					 }
+				 }
+             }
+			
          }
-       }
-     }
-         }
-
-     }
-     return columnSet;
+         return columnSet;
 }
-
+		
 
 
 
 /*FILE BY INPUT*/
 
 //GESTISCE I FILE XLS O XLSX TRAMITE INPUT
-/*
+		/*
 function ExportToTable() {
-      var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
-  //console.log("FILE: "+$("#excelfile").val().toLowerCase());  //excelfile.val() è il percorso del mio file. Devo creare un oggetto file tramite url in modo che il val sia il mio percorso.
-
-      //console.log("COSA SEI1: "+$("#excelfile"));
-    //console.log("COSA SEI2: "+$("#excelfile")[0]);
-    //console.log("COSA SEI3: "+$("#excelfile")[0].files[0]);
-
-      if (regex.test($("#excelfile").val().toLowerCase())) {
-          var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
-          if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
-              xlsxflag = true;
-          }
-          //Checks whether the browser supports HTML5
-          if (typeof (FileReader) != "undefined") {
-              var reader = new FileReader();
-
-
-              reader.onload = function (e) {
-                  var data = e.target.result;
-                  //Converts the excel data in to object
-                  if (xlsxflag) {
-                      var workbook = XLSX.read(data, { type: 'binary' });
-                  }
-                  else {
-                      var workbook = XLS.read(data, { type: 'binary' });
-                  }
-                  //Gets all the sheetnames of excel in to a variable
-                  var sheet_name_list = workbook.SheetNames;
-
-                  var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
-                  sheet_name_list.forEach(function (y) { //Iterate through all sheets
-                      //Convert the cell value to Json
+          var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+		  //console.log("FILE: "+$("#excelfile").val().toLowerCase());  //excelfile.val() è il percorso del mio file. Devo creare un oggetto file tramite url in modo che il val sia il mio percorso.
+		 
+		      //console.log("COSA SEI1: "+$("#excelfile"));
+			  //console.log("COSA SEI2: "+$("#excelfile")[0]);
+			  //console.log("COSA SEI3: "+$("#excelfile")[0].files[0]);
+		 
+          if (regex.test($("#excelfile").val().toLowerCase())) {
+              var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
+              if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
+                  xlsxflag = true;
+              }
+              //Checks whether the browser supports HTML5
+              if (typeof (FileReader) != "undefined") {
+                  var reader = new FileReader();
+				  
+				  
+                  reader.onload = function (e) {
+                      var data = e.target.result;
+                      //Converts the excel data in to object
                       if (xlsxflag) {
-            console.log("FILE XLSX");
-                          var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                          var workbook = XLSX.read(data, { type: 'binary' });
                       }
                       else {
-            console.log("FILE XLS");
-                          var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                          var workbook = XLS.read(data, { type: 'binary' });
                       }
-                      if (exceljson.length > 0 && cnt == 0) {
-                          BindTable(exceljson, '#exceltable');
-                          cnt++;
-                      }
-                  });
-                  $('#exceltable').show();
-              }
+                      //Gets all the sheetnames of excel in to a variable
+                      var sheet_name_list = workbook.SheetNames;
 
-
-              if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
-                  reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
+                      var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
+                      sheet_name_list.forEach(function (y) { //Iterate through all sheets
+                          //Convert the cell value to Json
+                          if (xlsxflag) {
+							  console.log("FILE XLSX");
+                              var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                          }
+                          else {
+							  console.log("FILE XLS");
+                              var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                          }
+                          if (exceljson.length > 0 && cnt == 0) {
+                              BindTable(exceljson, '#exceltable');
+                              cnt++;
+                          }
+                      });
+                      $('#exceltable').show();
+                  }
+				  
+				  
+                  if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
+                      reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
+                  }
+                  else {
+                      reader.readAsBinaryString($("#excelfile")[0].files[0]);
+					  
+                  }
               }
               else {
-                  reader.readAsBinaryString($("#excelfile")[0].files[0]);
-
+                  alert("Sorry! Your browser does not support HTML5!");
               }
           }
           else {
-              alert("Sorry! Your browser does not support HTML5!");
+              alert("Please upload a valid Excel file!");
           }
-      }
-      else {
-          alert("Please upload a valid Excel file!");
-      }
 }*/
-
-
-//per la lettura dei XLS
-
-
+		
+		
+		//per la lettura dei XLS
+		
+		
 
 //mette un listener nell'elemento bottone "carica file", quando esso viene cambiato allora viene chiamata la funzione filePicked
 /*$(function() {
-  oFileIn = document.getElementById('excelfile');
-  if(oFileIn.addEventListener) {
-    oFileIn.addEventListener('change', filePicked, false);
-  }
-});
+			oFileIn = document.getElementById('excelfile');
+			if(oFileIn.addEventListener) {
+				oFileIn.addEventListener('change', filePicked, false);
+			}
+		});
 */
-
-
+		
+	
 //LEGGE UN FILE .XLS IN INPUT
-/*
+		/*
 function filePicked(oEvent) {
-  // Get The File From The Input
-  var oFile = oEvent.target.files[0];
+			// Get The File From The Input
+			var oFile = oEvent.target.files[0];
+	
+			console.log("oFile input:");
+			console.log(oFile);
+	
+			var sFilename = oFile.name;
+	
+			console.log("oFile.name: "+sFilename);
+	
+			// Create A File Reader HTML5
+			var reader = new FileReader();
+			
+			if (sFilename.toLowerCase().indexOf(".xlsx") > 0) {
+				console.log("E' un file XLSX");
+				
+				ExportToTable();
+				
+				
+			}
+			else{
+				console.log("E' un file XLS");
+			
 
-  console.log("oFile input:");
-  console.log(oFile);
+			// Ready The Event For When A File Gets Selected
+			reader.onload = function(e) {
+				var data = e.target.result;
+				var cfb = XLS.CFB.read(data, {type: 'binary'});
+				var wb = XLS.parse_xlscfb(cfb);
+				// Loop Over Each Sheet
+				wb.SheetNames.forEach(function(sheetName) {
+					// Obtain The Current Row As CSV
+					var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
+					var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});   
+					$.each(data, function( indexR, valueR ) {
+						//var sRow = "<tr>";
+						if(indexR > 1){
+							$.each(data[indexR], function( indexC, valueC ) {
+								
+							
+							if(valueC){
+								if(indexC == col_data){
+								    valArr = valueC.split("/");  
+									mese = valArr[1];
+									giorno = valArr[0];
+								}
 
-  var sFilename = oFile.name;
+								if(indexC == col_uff && mese == 7)
+									dataSet.push(valueC);
+								
+								if(indexC == col_uff && mese == 7  && giorno == 30)
+									dataSet1.push(valueC);
+								
+								if(indexC == col_brand && mese == 7) 
+									dataSetMese.push(valueC);
+								
+								if(indexC == col_brand && mese == 7 && giorno == 30) 
+									dataSetGiorno.push(valueC);
+							}	
+							});
+						}
+						
+					});
+				});
+				
+				 createTableXLS(dataSet,dataSet1);
+		  		createPieChartMeseXLS(dataSetMese);
+				createPieChartGiornoXLS(dataSetGiorno);
+			};
 
-  console.log("oFile.name: "+sFilename);
-
-  // Create A File Reader HTML5
-  var reader = new FileReader();
-
-  if (sFilename.toLowerCase().indexOf(".xlsx") > 0) {
-    console.log("E' un file XLSX");
-
-    ExportToTable();
-
-
-  }
-  else{
-    console.log("E' un file XLS");
-
-
-  // Ready The Event For When A File Gets Selected
-  reader.onload = function(e) {
-    var data = e.target.result;
-    var cfb = XLS.CFB.read(data, {type: 'binary'});
-    var wb = XLS.parse_xlscfb(cfb);
-    // Loop Over Each Sheet
-    wb.SheetNames.forEach(function(sheetName) {
-      // Obtain The Current Row As CSV
-      var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
-      var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
-      $.each(data, function( indexR, valueR ) {
-        //var sRow = "<tr>";
-        if(indexR > 1){
-          $.each(data[indexR], function( indexC, valueC ) {
-
-
-          if(valueC){
-            if(indexC == col_data){
-                valArr = valueC.split("/");
-              mese = valArr[1];
-              giorno = valArr[0];
-            }
-
-            if(indexC == col_uff && mese == 7)
-              dataSet.push(valueC);
-
-            if(indexC == col_uff && mese == 7  && giorno == 30)
-              dataSet1.push(valueC);
-
-            if(indexC == col_brand && mese == 7)
-              dataSetMese.push(valueC);
-
-            if(indexC == col_brand && mese == 7 && giorno == 30)
-              dataSetGiorno.push(valueC);
-          }
-          });
-        }
-
-      });
-    });
-
-     createTableXLS(dataSet,dataSet1);
-      createPieChartMeseXLS(dataSetMese);
-    createPieChartGiornoXLS(dataSetGiorno);
-  };
-
-  // Tell JS To Start Reading The File.. You could delay this if desired
-  reader.readAsBinaryString(oFile);
-  }
+			// Tell JS To Start Reading The File.. You could delay this if desired
+			reader.readAsBinaryString(oFile);
+			}
 }*/
+	
+		
 
 
-
-
-
+		
 /*FILE BY URL*/
-
-var oFile,oFile1;
-
-//FILE XLSX TRAMITE URL	(la prima volta verrà chiamata con il file energia.xlsx, la seconda con wind.xlsx)
-$(document).ready(ExportToTableByURL(URL));
+		
+	var oFile,oFile1;
+	
+//FILE XLSX TRAMITE URL	(la prima volta verrà chiamata con il file energia.xlsx, la seconda con wind.xlsx)	
+$(document).ready(ExportToTableByURL(URL));		
 function ExportToTableByURL(url) {
+  
+	//var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)+([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+	var regex = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/;
+          
+	var request = new XMLHttpRequest();  //crea una richiesta http
+	request.open('POST',url, true);
+	request.setRequestHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8');    //setto una header alla mia richiesta di tipo xslx
+	request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
 
-//var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)+([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
-var regex = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/;
+	request.onload = function(e) {
+		if (this.status === 200) {    //andata a buon fine
+			blob = this.response;
 
-var request = new XMLHttpRequest();  //crea una richiesta http
-request.open('POST',url, true);
-request.setRequestHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8');    //setto una header alla mia richiesta di tipo xslx
-request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
-
-request.onload = function(e) {
-if (this.status === 200) {    //andata a buon fine
-  blob = this.response;
-
-  if(window.navigator.msSaveOrOpenBlob) {
-    window.navigator.msSaveBlob(blob, "energia.xlsx");
-  }
-  else{
-    oFile = new File([blob], "energia.xlsx", {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
-    //console.log("oFile xlsx creato da zero:");
-    //console.log(oFile);
-
-
-      //if (regex.test(oFile.name.toLowerCase())) {
-          var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
-          if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
-              xlsxflag = true;
-          }
-          //Checks whether the browser supports HTML5
-          if (typeof (FileReader) != "undefined") {
-              var reader = new FileReader();
-
-
-              reader.onload = function (e) {
-                  var data = e.target.result;
-                  //Converts the excel data in to object
-                  if (xlsxflag) {
-                      var workbook = XLSX.read(data, { type: 'binary' });
-                  }
-                  else {
-                      var workbook = XLS.read(data, { type: 'binary' });
-                  }
-                  //Gets all the sheetnames of excel in to a variable
-                  var sheet_name_list = workbook.SheetNames;
-
-                  var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
-                  sheet_name_list.forEach(function (y) { //Iterate through all sheets
-                      //Convert the cell value to Json
+			if(window.navigator.msSaveOrOpenBlob) {
+				window.navigator.msSaveBlob(blob, "energia.xlsx");
+			}
+			else{
+				oFile = new File([blob], "energia.xlsx", {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+				//console.log("oFile xlsx creato da zero:");
+				//console.log(oFile);
+					 	 
+					
+  				//if (regex.test(oFile.name.toLowerCase())) {
+              var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
+              if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
+                  xlsxflag = true;
+              }
+              //Checks whether the browser supports HTML5
+              if (typeof (FileReader) != "undefined") {
+                  var reader = new FileReader();
+				  
+				  
+                  reader.onload = function (e) {
+                      var data = e.target.result;
+                      //Converts the excel data in to object
                       if (xlsxflag) {
-            //console.log("file xlsx rilevato1!!!");
-                          var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                          var workbook = XLSX.read(data, { type: 'binary' });
                       }
                       else {
-                          var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                          var workbook = XLS.read(data, { type: 'binary' });
                       }
+                      //Gets all the sheetnames of excel in to a variable
+                      var sheet_name_list = workbook.SheetNames;
 
-                      if (exceljson.length > 0 && cnt == 0) {
-
-            BindTable(exceljson, '#exceltable');
-            if(flag == 0)
-            flag=1;
-
-            console.log(flag);
-                          cnt++;
-                      }
-                  });
-                  //$('#exceltable').show();
-              }
-
-              if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
-        //console.log("file xlsx rilevato2!!!");
-                 //reader.readAsArrayBuffer(blob[0].files[0]);
-        reader.readAsArrayBuffer(oFile);
+                      var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
+                      sheet_name_list.forEach(function (y) { //Iterate through all sheets
+                          //Convert the cell value to Json
+                          if (xlsxflag) {
+							  //console.log("file xlsx rilevato1!!!");
+                              var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                          }
+                          else {
+                              var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                          }
+						
+                          if (exceljson.length > 0 && cnt == 0) {
+						
+							  BindTable(exceljson, '#exceltable');
+							  if(flag == 0)
+								flag=1;
+							   
+							  console.log(flag);
+                              cnt++;
+                          }
+                      });
+                      //$('#exceltable').show();
+                  }
+			
+                  if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
+					  //console.log("file xlsx rilevato2!!!");
+                     //reader.readAsArrayBuffer(blob[0].files[0]);
+					  reader.readAsArrayBuffer(oFile); 
+                  }
+                  else {
+                      reader.readAsBinaryString($("#excelfile")[0].files[0]);
+                  }
               }
               else {
-                  reader.readAsBinaryString($("#excelfile")[0].files[0]);
+                  alert("Sorry! Your browser does not support HTML5!");
               }
-          }
+          /*}
           else {
-              alert("Sorry! Your browser does not support HTML5!");
-          }
-      /*}
-      else {
-          alert("Please upload a valid Excel file!");
-      }*/
+              alert("Please upload a valid Excel file!");
+          }*/
 
-          }
-         }
-      };
-      request.send();
-
+						  }
+					   }
+					};
+					request.send();
+	
 }
-
+		
 //Richiesta http del file XLS
 var myurl = 'https://playsoluzioniecomunicazione.it/dashboard/report/energia.xls';  //con www da problemi
 var myurl1 = 'https://playsoluzioniecomunicazione.it/dashboard/report/wind.xls';
@@ -1356,803 +1373,833 @@ var myurl2 = 'https://salesdashboard.it/dashboard/report/energia.xls';  //con ww
 var myurl3 = 'https://salesdashboard.it/dashboard/report/wind.xls';
 var oFile,sFilename,flag=0;
 //$(document).ready(getFileByURL(myurl2));
-function getFileByURL(url){
-
-
-var request = new XMLHttpRequest();  //crea una richiesta http
-request.open('POST',url, true);
-request.setRequestHeader('Content-Type', 'application/vnd.ms-excel; charset=UTF-8');    //setto una header alla mia richiesta
-request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
-
-request.onload = function(e) {
-  if (this.status === 200) {    //andata a buon fine
-    var blob = this.response;
-
-    if(window.navigator.msSaveOrOpenBlob) {
-     window.navigator.msSaveBlob(blob, "wind.xls");
-    }
-    else{
-      oFile = new File([blob], "nome", {type:"application/vnd.ms-excel"});
-      //console.log("oFile creato da zero:");
-      //console.log(oFile);
-      //if(flag==0){
-        filePickedURL();
-     // }
-    }
-   }
-};
-  request.send();
+function getFileByURL(url){		
+  
+  
+		var request = new XMLHttpRequest();  //crea una richiesta http
+		request.open('POST',url, true);
+		request.setRequestHeader('Content-Type', 'application/vnd.ms-excel; charset=UTF-8');    //setto una header alla mia richiesta
+		request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
+		
+		request.onload = function(e) {
+			if (this.status === 200) {    //andata a buon fine
+			  var blob = this.response;
+				
+			  if(window.navigator.msSaveOrOpenBlob) {
+				 window.navigator.msSaveBlob(blob, "wind.xls");
+			  }
+			  else{
+				  oFile = new File([blob], "nome", {type:"application/vnd.ms-excel"});
+				  //console.log("oFile creato da zero:");
+				  //console.log(oFile);
+				  //if(flag==0){
+				  	filePickedURL();
+				 // }
+			  }
+		   }
+		};
+   		request.send();
 }
-
-
-
-var col_data = 1;
-var col_uff = 4;
-var col_operat = 5;
-var col_brand = 14;
-var data,mese,giorno;
-var dataSet = [],dataSet1=[],dataSetMese=[],dataSetGiorno=[];
+		
+		
+		
+	var col_data = 1;
+	var col_uff = 4;
+	var col_operat = 5;
+	var col_brand = 14;
+	var data,mese,giorno;
+	var dataSet = [],dataSet1=[],dataSetMese=[],dataSetGiorno=[];		
 //FILE XLS TRAMITE URL
 function filePickedURL() {
+			
+			var reader = new FileReader();
+			if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
+				console.log("E' un file XLSX");
+				ExportToTable();
+			}
+			else{
+				//console.log("E' un file XLS");
+			// Ready The Event For When A File Gets Selected
+			reader.onload = function(e) {
+				var data = e.target.result;
+				var cfb = XLS.CFB.read(data, {type: 'binary'});
+				var wb = XLS.parse_xlscfb(cfb);
+				// Loop Over Each Sheet
+				wb.SheetNames.forEach(function(sheetName) {
+					// Obtain The Current Row As CSV
+					var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
+					var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});   
+					$.each(data, function( indexR, valueR ) {
+						//var sRow = "<tr>";
+						if(indexR > 1){
+							$.each(data[indexR], function( indexC, valueC ) {
+								
+							
+							if(valueC){
+								if(indexC == col_data){
+								    valArr = valueC.split("/");  
+									mese = valArr[1];
+									giorno = valArr[0];
+								}
 
-  var reader = new FileReader();
-  if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
-    console.log("E' un file XLSX");
-    ExportToTable();
-  }
-  else{
-    //console.log("E' un file XLS");
-  // Ready The Event For When A File Gets Selected
-  reader.onload = function(e) {
-    var data = e.target.result;
-    var cfb = XLS.CFB.read(data, {type: 'binary'});
-    var wb = XLS.parse_xlscfb(cfb);
-    // Loop Over Each Sheet
-    wb.SheetNames.forEach(function(sheetName) {
-      // Obtain The Current Row As CSV
-      var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
-      var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
-      $.each(data, function( indexR, valueR ) {
-        //var sRow = "<tr>";
-        if(indexR > 1){
-          $.each(data[indexR], function( indexC, valueC ) {
+								if(indexC == col_uff && mese == 7)
+									dataSet.push(valueC);
+								
+								if(indexC == col_uff && mese == 7  && giorno == 30)
+									dataSet1.push(valueC);
+								
+								if(indexC == col_brand && mese == 7) 
+									dataSetMese.push(valueC);
+								
+								if(indexC == col_brand && mese == 7 && giorno == 30) 
+									dataSetGiorno.push(valueC);
+							}	
+							});
+						}
+						
+					});
+				});
+				//console.log(flag);
+				if(flag==0){
+					flag=1;
+					getFileByURL(myurl3)
+				}
+				else{
+				  createTableXLS(dataSet,dataSet1);
+		  		  createPieChartMeseXLS(dataSetMese);
+				  createPieChartGiornoXLS(dataSetGiorno);
+				}
+			};
 
-
-          if(valueC){
-            if(indexC == col_data){
-                valArr = valueC.split("/");
-              mese = valArr[1];
-              giorno = valArr[0];
-            }
-
-            if(indexC == col_uff && mese == 7)
-              dataSet.push(valueC);
-
-            if(indexC == col_uff && mese == 7  && giorno == 30)
-              dataSet1.push(valueC);
-
-            if(indexC == col_brand && mese == 7)
-              dataSetMese.push(valueC);
-
-            if(indexC == col_brand && mese == 7 && giorno == 30)
-              dataSetGiorno.push(valueC);
-          }
-          });
-        }
-
-      });
-    });
-    //console.log(flag);
-    if(flag==0){
-      flag=1;
-      getFileByURL(myurl3)
-    }
-    else{
-      createTableXLS(dataSet,dataSet1);
-        createPieChartMeseXLS(dataSetMese);
-      createPieChartGiornoXLS(dataSetGiorno);
-    }
-  };
-
-  // Tell JS To Start Reading The File.. You could delay this if desired
-  reader.readAsBinaryString(oFile);
-  }
+			// Tell JS To Start Reading The File.. You could delay this if desired
+			reader.readAsBinaryString(oFile);
+			}
 }
+		
 
 
-
-
-
-
-
+		
+		
+		
+		
 var totMese=0,totGiorno=0;
 //CREA LA TABELLA AVENDO L'ARRAY DEGLI UFFICI DEL MESE, E DEL GIORNO
 function createTableXLS(dataSet,dataSet1){
+  
+		var dataSetOff = [];
+		var ufficiMese = [], n_ufficiMese = [], prev;
+		
 
-var dataSetOff = [];
-var ufficiMese = [], n_ufficiMese = [], prev;
+		dataSet.sort();
 
+		for ( var i = 0; i < dataSet.length; i++ ) {
+			if ( dataSet[i] !== prev ) {
+				ufficiMese.push(dataSet[i]);
+				n_ufficiMese.push(1);
+				totMese++;
+			} else {
+				n_ufficiMese[n_ufficiMese.length-1]++;
+				totMese++;
+			}
+			prev = dataSet[i];
+		}
 
-dataSet.sort();
+		var ufficiGiorno = [], n_ufficiGiorno = [],  n_ufficiGiorno2 = [], prev1;
+		var k=0;
 
-for ( var i = 0; i < dataSet.length; i++ ) {
-  if ( dataSet[i] !== prev ) {
-    ufficiMese.push(dataSet[i]);
-    n_ufficiMese.push(1);
-    totMese++;
-  } else {
-    n_ufficiMese[n_ufficiMese.length-1]++;
-    totMese++;
-  }
-  prev = dataSet[i];
-}
+		dataSet1.sort();
 
-var ufficiGiorno = [], n_ufficiGiorno = [],  n_ufficiGiorno2 = [], prev1;
-var k=0;
+		for ( var i = 0; i < dataSet1.length; i++ ) {
+			if ( dataSet1[i] !== prev1 ) {
+				ufficiGiorno.push(dataSet1[i]);
+				n_ufficiGiorno.push(1);
+				totGiorno++;
+			} else {
+				n_ufficiGiorno[n_ufficiGiorno.length-1]++;
+				totGiorno++;
+			}
+			prev1 = dataSet1[i];
+		}
 
-dataSet1.sort();
+		for(var i=0;i<ufficiMese.length;i++){
+			if(ufficiMese[i] !== ufficiGiorno[k])
+				n_ufficiGiorno2[i] = 0;
+			else
+				n_ufficiGiorno2[i] = n_ufficiGiorno[k++];
+		}
 
-for ( var i = 0; i < dataSet1.length; i++ ) {
-  if ( dataSet1[i] !== prev1 ) {
-    ufficiGiorno.push(dataSet1[i]);
-    n_ufficiGiorno.push(1);
-    totGiorno++;
-  } else {
-    n_ufficiGiorno[n_ufficiGiorno.length-1]++;
-    totGiorno++;
-  }
-  prev1 = dataSet1[i];
-}
+		for(var i=0;i<ufficiMese.length;i++){
+			dataSetOff[i] = [ufficiMese[i],n_ufficiGiorno2[i],n_ufficiMese[i]];
+		}
 
-for(var i=0;i<ufficiMese.length;i++){
-  if(ufficiMese[i] !== ufficiGiorno[k])
-    n_ufficiGiorno2[i] = 0;
-  else
-    n_ufficiGiorno2[i] = n_ufficiGiorno[k++];
-}
+	   
 
-for(var i=0;i<ufficiMese.length;i++){
-  dataSetOff[i] = [ufficiMese[i],n_ufficiGiorno2[i],n_ufficiMese[i]];
-}
-
-  $('#totMese').html("");
-$('#totMese').append(totMese);
-  $('#totGiorno').html("");
-$('#totGiorno').append(totGiorno);
-
-var myTable = $('#dataTable').dataTable();
-myTable.dataTable( {
-  data: dataSetOff,
-  destroy: true,   //eliminiamo la precedente tabella, molto importante
-  paging: false,
-  columnDefs: [     //larghezza colonne
-          { width: "50%", targets: 0 },
-    { width: "25%", targets: 1 },
-    { width: "25%", targets: 2 },
-  ],
-  scrollY: $(window).height()-300,
-  scrollX: true,
-  //scrollCollapse: false,
-  language: {
-    //info: "_START_ da _END_ tot: _TOTAL_",
-    info: "Risultati totali: _TOTAL_",
-    infoEmpty: "Nessun risultato"
-  },
-  columns: [
-    { title: "Forza vendita" },
-    { title: "Ins. Giorno" },
-    { title: "Ins. Mese" }
-  ],
-  order: [[0, 'asc']],
-});
-
-  //quando sarà caricata mostro l'intera pagina
-    showPage();
-    $('#dataTable').DataTable().columns.adjust();
+		var myTable = $('#dataTable').dataTable();
+		myTable.dataTable( {
+			data: dataSetOff,
+			destroy: true,   //eliminiamo la precedente tabella, molto importante
+			paging: false,
+			columnDefs: [     //larghezza colonne
+            	{ width: "50%", targets: 0 },
+				{ width: "25%", targets: 1 }, 
+				{ width: "25%", targets: 2 }, 
+			],
+			scrollY: $(window).height()-300,
+			scrollX: true,
+			//scrollCollapse: false,
+			language: {
+				//info: "_START_ da _END_ tot: _TOTAL_",
+				info: "Risultati totali: _TOTAL_",
+				infoEmpty: "Nessun risultato",
+                search: "Cerca:"
+			},
+			columns: [
+				{ title: "Forza vendita" },
+				{ title: "Ins. Giorno" },
+				{ title: "Ins. Mese" }
+			],
+			order: [[0, 'asc']], 
+		});
+	
+			//quando sarà caricata mostro l'intera pagina
+	      showPage();
+	      $('#dataTable').DataTable().columns.adjust();
 
 }
-var energieMese = [],energieGiorno = [], n_energieM = [],n_energie2=[],n_energieG = [];
-var myPieChart;
-//CREA IL PIECHART MESE AVENDO L'ARRAY DEI BRAND DEL MESE
+		var energieMese = [],energieGiorno = [], n_energieM = [],n_energie2=[],n_energieG = []; 
+		var myPieChart;
+//CREA IL PIECHART MESE AVENDO L'ARRAY DEI BRAND DEL MESE		
 function createPieChartMeseXLS(dataSet){
+     
+	var mese,prev;
+	var ufficio;
+	
+    if(flag!=2){
+		
+	    dataSet.sort();
 
-var mese,prev;
-var ufficio;
+		for ( var i = 0; i < dataSet.length; i++ ) {
+			if ( dataSet[i] !== prev ) {
+				energieMese.push(dataSet[i]);
+				n_energieM.push(1);
+			} 
+			else 
+				n_energieM[n_energieM.length-1]++;
+				
+			prev = dataSet[i];
+		}
+	}
+	
+											
+			console.log("energiemese: "+energieMese);
+	  console.log("n_energie: "+n_energieM);
+     								
+	
+	    OBIETTIVO=0;
+		for(var i=0;i<energieMese.length;i++){
+			OBIETTIVO = OBIETTIVO + obiettivi[i];
+		}
+	
+					
+       var colori = ["text-secondary","text-info","text-success","text-primary","text-warning","text-danger"];
+	   var coloriBar = ["bg-secondary","bg-info","bg-success","bg-primary","bg-warning","bg-danger"];
+	
+	
+  
+  
+        $('#totMese').html("");
+		$('#totMese').append(totMese+' su '+OBIETTIVO);
+	    $('#totGiorno').html("");
+		$('#totGiorno').append(totGiorno+' su '+(OBIETTIVO/n_giorni_nel_mese).toFixed(0));
+  
+  
+  
+  
+	 $('#cardMese').html("");
+	 $('#cardMese').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totMese/OBIETTIVO*100).toFixed(1)+'%;" aria-valuenow="'+(totMese/OBIETTIVO*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totMese/OBIETTIVO*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card	
+										
+       for(var i=0;i<energieMese.length;i++){
+           //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
+           $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energieM[i]+' su '+obiettivi[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%;" aria-valuenow="'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
+       }
+		
+	
+    $('#dashTitle').html("Sales Dashboard (esempio oggi: "+currGiorno+"/"+currMese+"/2020)");
+	//$('#dashTitle').append('&nbsp;&nbsp;OBIETTIVI:&nbsp;&nbsp; brand: '+obiettivi[0]+','+obiettivi[1]+','+obiettivi[2]+','+obiettivi[3]+','+obiettivi[4] +'&nbsp;&nbsp;&nbsp;mese: '+OBIETTIVO);
+	
+	//console.log(obiettivi);
+	
+    var pieMese = document.getElementById("myPieChartMese").getContext('2d');
+    myPieChart = new Chart(pieMese, {
+          //type: 'doughnut',
+			type: 'pie',
+          data: {
+            labels: energieMese,
+			  destroy: true,   //eliminiamo la precedente tabella, molto importante
+            datasets: [{
+              data: n_energieM,
+              backgroundColor:      ['#36b9rc', '#36b9cc', '#1cc88a','#4e73df', '#f0ad4e'],
+              hoverBackgroundColor: ['black','#2c9faf','#17a673','#2e59d9','#ffa500'],
+              hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+            },
+            legend: {
+			  position: 'bottom',
+			  labels: {
+				padding: 20,
+				boxWidth: 20
+			  }
+        	},
+           // cutoutPercentage: 50,   //spessore anello
+			   plugins: {
+			  datalabels: {
+				formatter: (value, ctx) => {
+				  let sum = 0;
+				  let dataArr = ctx.chart.data.datasets[0].data;
+				  dataArr.map(data => {
+					sum += data;
+				  });
+				  let percentage = (value * 100 / sum).toFixed(1) + "%";
+					if(value==0)
+						percentage="";
+				  return percentage;
+				},
+				color: 'white',
+				labels: {
+				  title: {
+					font: {
+					  size: '25'
+					}
+				  }
+				}
+			  }
+        	}
+          },
+	});
+} 
 
-if(flag!=2){
-
-  dataSet.sort();
-
-for ( var i = 0; i < dataSet.length; i++ ) {
-  if ( dataSet[i] !== prev ) {
-    energieMese.push(dataSet[i]);
-    n_energieM.push(1);
-  }
-  else
-    n_energieM[n_energieM.length-1]++;
-
-  prev = dataSet[i];
-}
-}
-
-
-  console.log("energiemese: "+energieMese);
-console.log("n_energie: "+n_energieM);
-
-
-  OBIETTIVO=0;
-for(var i=0;i<energieMese.length;i++){
-  OBIETTIVO = OBIETTIVO + obiettivi[i];
-}
-
-
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
-
-
-$('#cardMese').html("");
-$('#cardMese').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totMese/OBIETTIVO*100).toFixed(1)+'%;" aria-valuenow="'+(totMese/OBIETTIVO*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totMese/OBIETTIVO*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
-
-   for(var i=0;i<energieMese.length;i++){
-       //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-       $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energieM[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%;" aria-valuenow="'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
-   }
-
-
-
-$('#dashTitle').html("Sales Dashboard (esempio oggi: 17 Luglio)");
-$('#dashTitle').append('&nbsp;&nbsp;OBIETTIVI:&nbsp;&nbsp; brand: '+obiettivi[0]+','+obiettivi[1]+','+obiettivi[2]+','+obiettivi[3]+','+obiettivi[4] +'&nbsp;&nbsp;&nbsp;mese: '+OBIETTIVO);
-
-//console.log(obiettivi);
-
-var pieMese = document.getElementById("myPieChartMese").getContext('2d');
-myPieChart = new Chart(pieMese, {
-      //type: 'doughnut',
-  type: 'pie',
-      data: {
-        labels: energieMese,
-    destroy: true,   //eliminiamo la precedente tabella, molto importante
-        datasets: [{
-          data: n_energieM,
-          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
-          hoverBorderColor: "rgba(234, 236, 244, 1)",
-        }],
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        tooltips: {
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-        },
-        legend: {
-    position: 'bottom',
-    labels: {
-    padding: 20,
-    boxWidth: 20
-    }
-      },
-       // cutoutPercentage: 50,   //spessore anello
-     plugins: {
-    datalabels: {
-    formatter: (value, ctx) => {
-      let sum = 0;
-      let dataArr = ctx.chart.data.datasets[0].data;
-      dataArr.map(data => {
-      sum += data;
-      });
-      let percentage = (value * 100 / sum).toFixed(1) + "%";
-      if(value==0)
-        percentage="";
-      return percentage;
-    },
-    color: 'white',
-    labels: {
-      title: {
-      font: {
-        size: '25'
-      }
-      }
-    }
-    }
-      }
-      },
-});
-}
-
-//CREA IL PIECHART GIORNO AVENDO L'ARRAY DEI BRAND DEL GIORNO
+	//CREA IL PIECHART GIORNO AVENDO L'ARRAY DEI BRAND DEL GIORNO
 function createPieChartGiornoXLS(dataSet){
+   
+	var mese,giorno,prev;
+	var k=0;
+      
+  if(flag!=2){
+		dataSet.sort();
 
-var mese,giorno,prev;
-var k=0;
+		for ( var i = 0; i < dataSet.length; i++ ) {
+			if ( dataSet[i] !== prev ) {
+				energieGiorno.push(dataSet[i]);
+				n_energieG.push(1);
+			} else {
+				n_energieG[n_energieG.length-1]++;
+			}
+			prev = dataSet[i];
+		}
+							
+			for(var i=0;i<energieMese.length;i++){
+			if(energieMese[i] !== energieGiorno[k])
+				n_energie2[i] = 0;
+			else
+				n_energie2[i] = n_energieG[k++];
+		}								
+  }					
+	
+      var colori = ["text-secondary","text-info","text-success","text-primary","text-warning","text-danger"];
+	   var coloriBar = ["bg-secondary","bg-info","bg-success","bg-primary","bg-warning","bg-danger"];
 
-if(flag!=2){
-dataSet.sort();
-
-for ( var i = 0; i < dataSet.length; i++ ) {
-  if ( dataSet[i] !== prev ) {
-    energieGiorno.push(dataSet[i]);
-    n_energieG.push(1);
-  } else {
-    n_energieG[n_energieG.length-1]++;
-  }
-  prev = dataSet[i];
+	$('#cardGiorno').html("");
+	$('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card		
+	
+								
+       for(var i=0;i<energieMese.length;i++){
+           //$('#pieLegendGiorno').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
+			$('#cardGiorno').append('<h4>'+energieMese[i]+': '+n_energie2[i]+' su '+(obiettivi[i]/n_giorni_nel_mese).toFixed(0)+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+((n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese).toFixed(0))*100).toFixed(1)+'%;" aria-valuenow="'+((n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese).toFixed(0))*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+((n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese).toFixed(0))*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
+       }
+        							  
+		var pieGiorno = document.getElementById("myPieChartGiorno");
+        var myPieChart = new Chart(pieGiorno, {
+          type: 'doughnut',
+			//type: 'pie',
+          data: {
+            labels: energieMese,
+            datasets: [{
+              data: n_energie2,
+              backgroundColor:      ['#36b9rc', '#36b9cc', '#1cc88a','#4e73df', '#f0ad4e'],
+              hoverBackgroundColor: ['black','#2c9faf','#17a673','#2e59d9','#ffa500'],
+              hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+            },
+            legend: {
+			  position: 'bottom',
+			  labels: {
+				padding: 20,
+				boxWidth: 20
+			  }
+        	},
+			 
+            cutoutPercentage: 30,   //spessore anello
+			   plugins: {
+			  datalabels: {
+				formatter: (value, ctx) => {
+				  let sum = 0;
+				  let dataArr = ctx.chart.data.datasets[0].data;
+				  dataArr.map(data => {
+					sum += data;
+				  });
+				  let percentage = (value * 100 / sum).toFixed(1) + "%";
+					if(value==0)
+						percentage="";
+				  return percentage;
+				},
+				color: 'white',
+				labels: {
+				  title: {
+					font: {
+					  size: '25'
+					}
+				  }
+				}
+			  }
+        	}
+          },
+       });
 }
-
-  for(var i=0;i<energieMese.length;i++){
-  if(energieMese[i] !== energieGiorno[k])
-    n_energie2[i] = 0;
-  else
-    n_energie2[i] = n_energieG[k++];
-}
-}
-
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
-
-$('#cardGiorno').html("");
-$('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
-
-
-   for(var i=0;i<energieMese.length;i++){
-       //$('#pieLegendGiorno').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-  $('#cardGiorno').append('<h4>'+energieMese[i]+': '+n_energie2[i]+' su '+(obiettivi[i]/n_giorni_nel_mese).toFixed(0)+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
-   }
-
-var pieGiorno = document.getElementById("myPieChartGiorno");
-    var myPieChart = new Chart(pieGiorno, {
-      type: 'doughnut',
-  //type: 'pie',
-      data: {
-        labels: energieMese,
-        datasets: [{
-          data: n_energie2,
-         backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
-          hoverBorderColor: "rgba(234, 236, 244, 1)",
-        }],
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        tooltips: {
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-        },
-        legend: {
-    position: 'bottom',
-    labels: {
-    padding: 20,
-    boxWidth: 20
-    }
-      },
-
-        cutoutPercentage: 30,   //spessore anello
-     plugins: {
-    datalabels: {
-    formatter: (value, ctx) => {
-      let sum = 0;
-      let dataArr = ctx.chart.data.datasets[0].data;
-      dataArr.map(data => {
-      sum += data;
-      });
-      let percentage = (value * 100 / sum).toFixed(1) + "%";
-      if(value==0)
-        percentage="";
-      return percentage;
-    },
-    color: 'white',
-    labels: {
-      title: {
-      font: {
-        size: '25'
-      }
-      }
-    }
-    }
-      }
-      },
-   });
-}
-
-
-
-
-
-
-
-
+		  
+      
+	
+	
+	
+	
+	
+	
 
 //<!--CSV FILE-->
 
-/*
-var col_data = 0;
-var col_uff = 1;
-var col_operat = 2;
-var col_brand = 3;
+	/*
+	var col_data = 0;
+	var col_uff = 1;
+	var col_operat = 2;
+	var col_brand = 3;
 
-$(document).ready(createDashboard());
+	$(document).ready(createDashboard());
 
 function createDashboard()
 {
-var obiettivo = 50;
-$('#dashTitle').append('&nbsp;&nbsp;&nbsp;&nbsp;Obiettivo: '+obiettivo);
+	 var obiettivo = 50; 
+	 $('#dashTitle').append('&nbsp;&nbsp;&nbsp;&nbsp;Obiettivo: '+obiettivo);
+	
+	//prendo il .csv
+    csv = $.ajax({
+        type:"GET",
+        dataType:"text",
+        url:"energia.csv",
+        cache:false
+    });
+    
+    csv.done(function(data){ 
+		
+		console.log(data);
+		//split on new line
+		var dataArr = data.split("\n"); //il file lo divido in righe in base al "\n"
 
-//prendo il .csv
-csv = $.ajax({
-    type:"GET",
-    dataType:"text",
-    url:"energia.csv",
-    cache:false
-});
-
-csv.done(function(data){
-
-console.log(data);
-//split on new line
-var dataArr = data.split("\n"); //il file lo divido in righe in base al "\n"
-
-//console.log(dataArr);
-dataArr.shift();  //cancello la prima riga della tabella
-dataArr.shift();  //cancello la seconda riga della tabella
-
-//ALL FUNCTIONS
-createTable(dataArr)
-createPieChartMese(dataArr,obiettivo)
-createPieChartGiorno(dataArr,obiettivo);
-});
-
-// Run script if request fails
-csv.fail(function() {
-   console.log('A failure ocurred');
-});
+		//console.log(dataArr);
+		dataArr.shift();  //cancello la prima riga della tabella
+		dataArr.shift();  //cancello la seconda riga della tabella
+		
+		//ALL FUNCTIONS
+		createTable(dataArr)
+		createPieChartMese(dataArr,obiettivo)
+		createPieChartGiorno(dataArr,obiettivo);
+    });
+    
+    // Run script if request fails
+    csv.fail(function() {
+       console.log('A failure ocurred');
+    });
 }
 
-
-
+	
+	
 function createTable(dataArr){
-//split on new line
-var mese,giorno;
-var dataSet = [],dataSet1 = [],dataSetFinal = [];
+		//split on new line
+		var mese,giorno;
+		var dataSet = [],dataSet1 = [],dataSetFinal = [];
+	
+		//for each line in array 
+		$.each(dataArr,function(){       //per ogni riga 
+			valArr = this.split(";");   //prendo valore per valore in base al ;
 
-//for each line in array
-$.each(dataArr,function(){       //per ogni riga
-  valArr = this.split(";");   //prendo valore per valore in base al ;
+			mese = valArr[col_data].substr(2, 1);
+			giorno = valArr[col_data].substr(0, 1);
+			
+			if(mese == 7)                      
+				dataSet.push(valArr[col_uff]);      //dataset conterrà tutti i dati in formato array di stringhe di luglio
 
-  mese = valArr[col_data].substr(2, 1);
-  giorno = valArr[col_data].substr(0, 1);
+			if(mese == 7 && giorno==5)                      
+				dataSet1.push(valArr[col_uff]);      //dataset conterrà tutti i dati in formato array di stringhe del 5 luglio
+		});
 
-  if(mese == 7)
-    dataSet.push(valArr[col_uff]);      //dataset conterrà tutti i dati in formato array di stringhe di luglio
+		var ufficiMese = [], n_ufficiMese = [], prev;
+		var totMese=0;
 
-  if(mese == 7 && giorno==5)
-    dataSet1.push(valArr[col_uff]);      //dataset conterrà tutti i dati in formato array di stringhe del 5 luglio
-});
+		dataSet.sort();
 
-var ufficiMese = [], n_ufficiMese = [], prev;
-var totMese=0;
+		for ( var i = 0; i < dataSet.length; i++ ) {
+			if ( dataSet[i] !== prev ) {
+				ufficiMese.push(dataSet[i]);
+				n_ufficiMese.push(1);
+				totMese++;
+			} else {
+				n_ufficiMese[n_ufficiMese.length-1]++;
+				totMese++;
+			}
+			prev = dataSet[i];
+		}
 
-dataSet.sort();
+		var ufficiGiorno = [], n_ufficiGiorno = [],  n_ufficiGiorno2 = [], prev1;
+		var k=0,totGiorno=0;
 
-for ( var i = 0; i < dataSet.length; i++ ) {
-  if ( dataSet[i] !== prev ) {
-    ufficiMese.push(dataSet[i]);
-    n_ufficiMese.push(1);
-    totMese++;
-  } else {
-    n_ufficiMese[n_ufficiMese.length-1]++;
-    totMese++;
-  }
-  prev = dataSet[i];
-}
+		dataSet1.sort();
 
-var ufficiGiorno = [], n_ufficiGiorno = [],  n_ufficiGiorno2 = [], prev1;
-var k=0,totGiorno=0;
+		for ( var i = 0; i < dataSet1.length; i++ ) {
+			if ( dataSet1[i] !== prev1 ) {
+				ufficiGiorno.push(dataSet1[i]);
+				n_ufficiGiorno.push(1);
+				totGiorno++;
+			} else {
+				n_ufficiGiorno[n_ufficiGiorno.length-1]++;
+				totGiorno++;
+			}
+			prev1 = dataSet1[i];
+		}
 
-dataSet1.sort();
+		for(var i=0;i<ufficiMese.length;i++){
+			if(ufficiMese[i] !== ufficiGiorno[k])
+				n_ufficiGiorno2[i] = 0;
+			else
+				n_ufficiGiorno2[i] = n_ufficiGiorno[k++];
+		}
 
-for ( var i = 0; i < dataSet1.length; i++ ) {
-  if ( dataSet1[i] !== prev1 ) {
-    ufficiGiorno.push(dataSet1[i]);
-    n_ufficiGiorno.push(1);
-    totGiorno++;
-  } else {
-    n_ufficiGiorno[n_ufficiGiorno.length-1]++;
-    totGiorno++;
-  }
-  prev1 = dataSet1[i];
-}
+		for(var i=0;i<ufficiMese.length;i++){
+			dataSetFinal[i] = [ufficiMese[i],n_ufficiGiorno2[i],n_ufficiMese[i]];
+		}
 
-for(var i=0;i<ufficiMese.length;i++){
-  if(ufficiMese[i] !== ufficiGiorno[k])
-    n_ufficiGiorno2[i] = 0;
-  else
-    n_ufficiGiorno2[i] = n_ufficiGiorno[k++];
-}
+		$('#totMese').append(totMese);
+		$('#totGiorno').append(totGiorno);
 
-for(var i=0;i<ufficiMese.length;i++){
-  dataSetFinal[i] = [ufficiMese[i],n_ufficiGiorno2[i],n_ufficiMese[i]];
-}
-
-$('#totMese').append(totMese);
-$('#totGiorno').append(totGiorno);
-
-var myTable = $('#dataTable').dataTable();
-myTable.dataTable( {
-  data: dataSetFinal,
-  destroy: true,   //eliminiamo la precedente tabella, molto importante
-  paging: false,
-  scrollY: $(window).height()-390,
-  scrollX: true,
-  //scrollCollapse: false,
-  language: {
-    //info: "_START_ da _END_ tot: _TOTAL_",
-    info: "Risultati totali: _TOTAL_",
-    infoEmpty: "Nessun risultato"
-  },
-  columns: [
-    { title: "Forza vendita" },
-    { title: "Ins. Giorno" },
-    { title: "Ins. Mese" }
-  ],
-  order: [[0, 'asc']],
-});
+		var myTable = $('#dataTable').dataTable();
+		myTable.dataTable( {
+			data: dataSetFinal,
+			destroy: true,   //eliminiamo la precedente tabella, molto importante
+			paging: false,
+			scrollY: $(window).height()-390,
+			scrollX: true,
+			//scrollCollapse: false,
+			language: {
+				//info: "_START_ da _END_ tot: _TOTAL_",
+				info: "Risultati totali: _TOTAL_",
+				infoEmpty: "Nessun risultato"
+			},
+			columns: [
+				{ title: "Forza vendita" },
+				{ title: "Ins. Giorno" },
+				{ title: "Ins. Mese" }
+			],
+			order: [[0, 'asc']], 
+		});
 }
 
 function createPieChartMese(dataArr,obiettivo){
+    
+	var dataSet = [],energie = [],n_energie = [];    
+	var mese,prev;
+	
+    
+        $.each(dataArr,function(){       //per ogni riga 
+                valArr = this.split(";");   //prendo valore per valore in base al ;
+                mese = valArr[col_data].substr(2, 1);
+                
+                if(mese == 7)  //considero che voglio solo i dati di luglio
+                    dataSet.push(valArr[col_brand]);    //vado a prendere solo la colonna voluta   
+        });
+     
+	    dataSet.sort();
 
-var dataSet = [],energie = [],n_energie = [];
-var mese,prev;
-
-
-    $.each(dataArr,function(){       //per ogni riga
-            valArr = this.split(";");   //prendo valore per valore in base al ;
-            mese = valArr[col_data].substr(2, 1);
-
-            if(mese == 7)  //considero che voglio solo i dati di luglio
-                dataSet.push(valArr[col_brand]);    //vado a prendere solo la colonna voluta
-    });
-
-  dataSet.sort();
-
-for ( var i = 0; i < dataSet.length; i++ ) {
-  if ( dataSet[i] !== prev ) {
-    energie.push(dataSet[i]);
-    n_energie.push(1);
-  }
-  else
-    n_energie[n_energie.length-1]++;
-
-  prev = dataSet[i];
+		for ( var i = 0; i < dataSet.length; i++ ) {
+			if ( dataSet[i] !== prev ) {
+				energie.push(dataSet[i]);
+				n_energie.push(1);
+			} 
+			else 
+				n_energie[n_energie.length-1]++;
+				
+			prev = dataSet[i];
+		}
+	
+       var colori = ["text-primary","text-warning","text-info","text-success","text-secondary"];
+	   var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
+       for(var i=0;i<energie.length;i++){
+           //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
+           $('#cardMese').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
+		 
+       }
+	
+	
+    var pieMese = document.getElementById("myPieChartMese").getContext('2d');
+    var myPieChart = new Chart(pieMese, {
+          //type: 'doughnut',
+			type: 'pie',
+          data: {
+            labels: energie,
+            datasets: [{
+              data: n_energie,
+              backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#1cc81a', '#36b9rc','#4e73bf', '#1cc83a', '#36b9lc'],
+              hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', '#17a673', '#2c9faf','#2e59d9', '#17a673', '#2c9faf'],
+              hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+            },
+            legend: {
+			  position: 'bottom',
+			  labels: {
+				padding: 20,
+				boxWidth: 20
+			  }
+        	},
+           // cutoutPercentage: 50,   //spessore anello
+			   plugins: {
+			  datalabels: {
+				formatter: (value, ctx) => {
+				  let sum = 0;
+				  let dataArr = ctx.chart.data.datasets[0].data;
+				  dataArr.map(data => {
+					sum += data;
+				  });
+				  let percentage = (value * 100 / sum).toFixed(1) + "%";
+				  return percentage;
+				},
+				color: 'white',
+				labels: {
+				  title: {
+					font: {
+					  size: '25'
+					}
+				  }
+				}
+			  }
+        	}
+          },
+	});
 }
 
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
-   for(var i=0;i<energie.length;i++){
-       //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-       $('#cardMese').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
-
-   }
-
-
-var pieMese = document.getElementById("myPieChartMese").getContext('2d');
-var myPieChart = new Chart(pieMese, {
-      //type: 'doughnut',
-  type: 'pie',
-      data: {
-        labels: energie,
-        datasets: [{
-          data: n_energie,
-          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#1cc81a', '#36b9rc','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', '#17a673', '#2c9faf','#2e59d9', '#17a673', '#2c9faf'],
-          hoverBorderColor: "rgba(234, 236, 244, 1)",
-        }],
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        tooltips: {
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-        },
-        legend: {
-    position: 'bottom',
-    labels: {
-    padding: 20,
-    boxWidth: 20
-    }
-      },
-       // cutoutPercentage: 50,   //spessore anello
-     plugins: {
-    datalabels: {
-    formatter: (value, ctx) => {
-      let sum = 0;
-      let dataArr = ctx.chart.data.datasets[0].data;
-      dataArr.map(data => {
-      sum += data;
-      });
-      let percentage = (value * 100 / sum).toFixed(1) + "%";
-      return percentage;
-    },
-    color: 'white',
-    labels: {
-      title: {
-      font: {
-        size: '25'
-      }
-      }
-    }
-    }
-      }
-      },
-});
-}
-
-
+	
 function createPieChartGiorno(dataArr,obiettivo){
+    
+	var dataSet = [],energie = [],n_energie = [];   
+	var mese,giorno,prev;
+	
+      
+        $.each(dataArr,function(){       //per ogni riga 
+                valArr = this.split(";");   //prendo valore per valore in base al ;
+                mese = valArr[col_data].substr(2, 1);
+                giorno = valArr[col_data].substr(0, 1);
+                
+                if(mese == 7 && giorno == 5)  //considero che voglio solo i dati del 5 luglio
+                    dataSet.push(valArr[col_brand]);    //vado a prendere solo la colonna voluta, le energie
+        });
+     
+		dataSet.sort();
 
-var dataSet = [],energie = [],n_energie = [];
-var mese,giorno,prev;
-
-
-    $.each(dataArr,function(){       //per ogni riga
-            valArr = this.split(";");   //prendo valore per valore in base al ;
-            mese = valArr[col_data].substr(2, 1);
-            giorno = valArr[col_data].substr(0, 1);
-
-            if(mese == 7 && giorno == 5)  //considero che voglio solo i dati del 5 luglio
-                dataSet.push(valArr[col_brand]);    //vado a prendere solo la colonna voluta, le energie
-    });
-
-dataSet.sort();
-
-for ( var i = 0; i < dataSet.length; i++ ) {
-  if ( dataSet[i] !== prev ) {
-    energie.push(dataSet[i]);
-    n_energie.push(1);
-  } else {
-    n_energie[n_energie.length-1]++;
-  }
-  prev = dataSet[i];
-}
-
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
-
-   for(var i=0;i<energie.length;i++){
-       //$('#pieLegendGiorno').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-  $('#cardGiorno').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
-   }
-
-var pieGiorno = document.getElementById("myPieChartGiorno");
-    var myPieChart = new Chart(pieGiorno, {
-      //type: 'doughnut',
-  type: 'pie',
-      data: {
-        labels: energie,
-        datasets: [{
-          data: n_energie,
-          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#1cc81a', '#36b9rc','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', '#17a673', '#2c9faf','#2e59d9', '#17a673', '#2c9faf'],
-          hoverBorderColor: "rgba(234, 236, 244, 1)",
-        }],
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        tooltips: {
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-        },
-        legend: {
-    position: 'bottom',
-    labels: {
-    padding: 20,
-    boxWidth: 20
-    }
-      },
-       // cutoutPercentage: 50,   //spessore anello
-     plugins: {
-    datalabels: {
-    formatter: (value, ctx) => {
-      let sum = 0;
-      let dataArr = ctx.chart.data.datasets[0].data;
-      dataArr.map(data => {
-      sum += data;
-      });
-      let percentage = (value * 100 / sum).toFixed(1) + "%";
-      return percentage;
-    },
-    color: 'white',
-    labels: {
-      title: {
-      font: {
-        size: '25'
-      }
-      }
-    }
-    }
-      }
-      },
-   });
+		for ( var i = 0; i < dataSet.length; i++ ) {
+			if ( dataSet[i] !== prev ) {
+				energie.push(dataSet[i]);
+				n_energie.push(1);
+			} else {
+				n_energie[n_energie.length-1]++;
+			}
+			prev = dataSet[i];
+		}
+  
+       var colori = ["text-primary","text-warning","text-info","text-success","text-secondary"];
+	   var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
+		
+       for(var i=0;i<energie.length;i++){
+           //$('#pieLegendGiorno').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
+			$('#cardGiorno').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
+       }
+        							  
+		var pieGiorno = document.getElementById("myPieChartGiorno");
+        var myPieChart = new Chart(pieGiorno, {
+          //type: 'doughnut',
+			type: 'pie',
+          data: {
+            labels: energie,
+            datasets: [{
+              data: n_energie,
+              backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#1cc81a', '#36b9rc','#4e73bf', '#1cc83a', '#36b9lc'],
+              hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', '#17a673', '#2c9faf','#2e59d9', '#17a673', '#2c9faf'],
+              hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+            },
+            legend: {
+			  position: 'bottom',
+			  labels: {
+				padding: 20,
+				boxWidth: 20
+			  }
+        	},
+           // cutoutPercentage: 50,   //spessore anello
+			   plugins: {
+			  datalabels: {
+				formatter: (value, ctx) => {
+				  let sum = 0;
+				  let dataArr = ctx.chart.data.datasets[0].data;
+				  dataArr.map(data => {
+					sum += data;
+				  });
+				  let percentage = (value * 100 / sum).toFixed(1) + "%";
+				  return percentage;
+				},
+				color: 'white',
+				labels: {
+				  title: {
+					font: {
+					  size: '25'
+					}
+				  }
+				}
+			  }
+        	} 
+          },
+       });
 }*/
 
-function showPage() {
-document.getElementById("loader").style.display = "none";
-document.getElementById("mainDiv").style.display = "block";
+	function showPage() {
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("mainDiv").style.display = "block";
+		
+		
+	}
+	
+	function isNumberKey(evt)
+	{
+		var charCode = (evt.which) ? evt.which : evt.keyCode;
+		if (charCode != 46 && charCode > 31 
+			&& (charCode < 48 || charCode > 57))
+			return false;
+		return true;
+	}  
+	
+      
+      
+	function setObj() //modal
+	{
+		obiettivi[0] = document.getElementById('inputEni').valueAsNumber;
+		obiettivi[1] = document.getElementById('inputHeracomm').valueAsNumber;
+		obiettivi[2] = document.getElementById('inputIberdrola').valueAsNumber;
+		obiettivi[3] = document.getElementById('inputSinergy').valueAsNumber;
+		obiettivi[4] = document.getElementById('inputWind').valueAsNumber;
+      
+        sendMyData(obiettivi[0],obiettivi[1],obiettivi[2],obiettivi[3],obiettivi[4]);
 
+		flag=2;
+		createPieChartMeseXLS(dataSetMese);
+		createPieChartGiornoXLS(dataSetGiorno);
+       
+	}  
+	
+	
+	
+  	function getData() {
+      
+      
+       console.log("GET DATA...");
 
-}
+/*
+   //var dd = String(today.getDate()).padStart(2, '0');
+   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+   //var yyyy = today.getFullYear();
 
-function isNumberKey(evt)
-{
-var charCode = (evt.which) ? evt.which : evt.keyCode;
-if (charCode != 46 && charCode > 31
-  && (charCode < 48 || charCode > 57))
-  return false;
-return true;
-}
-
-
-
-function setObj() //modal
-{
-obiettivi[0] = document.getElementById('inputEni').valueAsNumber;
-obiettivi[1] = document.getElementById('inputHeracomm').valueAsNumber;
-obiettivi[2] = document.getElementById('inputIberdrola').valueAsNumber;
-obiettivi[3] = document.getElementById('inputSinergy').valueAsNumber;
-obiettivi[4] = document.getElementById('inputWind').valueAsNumber;
-
-    sendMyData(obiettivi[0],obiettivi[1],obiettivi[2],obiettivi[3],obiettivi[4]);
-
-flag=2;
-createPieChartMeseXLS(dataSetMese);
-createPieChartGiornoXLS(dataSetGiorno);
-
-}
-
-
-
-function getData() {
-
-   console.log("chiamo getData e obiettivi: "+obiettivi);
-
-  $.ajax({
+   switch(Number(mm)){  //ovviamente saranno validi nell'anno corrente
+     case 1: n_giorni_nel_mese = 21; break;
+     case 2: n_giorni_nel_mese = 20; break;
+     case 3: n_giorni_nel_mese = 22; break;
+     case 4: n_giorni_nel_mese = 21; break;
+     case 5: n_giorni_nel_mese = 20; break;
+     case 6: n_giorni_nel_mese = 21; break;
+     case 7: n_giorni_nel_mese = 23; break;
+     case 8: n_giorni_nel_mese = 10; break;
+     case 9: n_giorni_nel_mese = 22; break;
+     case 10: n_giorni_nel_mese = 22; break;
+     case 11: n_giorni_nel_mese = 21; break;
+     case 12: n_giorni_nel_mese = 21; break;
+     default: n_giorni_nel_mese = -1; break;
+   }
+ */
+  $.ajax({                      //obiettivi presi da database
     url: 'getObiettivi.php',
-    type: 'GET',
+    type: "GET",
     dataType: 'JSON',
     success: function(response){
+        console.log(response);
+
         var len = response.length;
         var eni,heracomm,iberdrola,sinergy,wind;
 
         for(i=0; i<len; i++){
              eni = Math.floor(response[i].eni);
-
              heracomm = Number(response[i].heracomm);
              iberdrola = Number(response[i].iberdrola);
              sinergy = Number(response[i].sinergy);
@@ -2164,61 +2211,80 @@ function getData() {
            obiettivi[2] = iberdrola;
            obiettivi[3] = sinergy;
            obiettivi[4] = wind;
+      
+      console.log("presi da database: "+obiettivi);
+
+
+    },
+    error: function(xhr) {
+        console.log(xhr);
     }
-});
+  });
 
 
 
+  // A MANO, GIUSTO PER PROVA
+    /*obiettivi[0] = 450;
+    obiettivi[1] = 400;
+    obiettivi[2] = 500;
+    obiettivi[3] = 350;
+    obiettivi[4] = 600;*/
 
-}
+    currMese = 7;
+    currGiorno = 17;
+    n_giorni_nel_mese = 22;
+      
+   
+      
+	}
+        
+        
+        
+        
+      //$sql = "INSERT INTO obiettivi VALUES ('00-00-0000',2,3,4,5,6)";  //questa scritta direttamente su phpmyadmin
+      //$sql = "INSERT INTO obiettivi VALUES ('".$_POST["inputEni"]."','".$_POST["inputEni"]."','".$_POST["inputHeracomm"]."','".$_POST["inputIberdrola"]."','".$_POST["inputSinergy"]."','".$_POST["inputWind"]."')";
+      //$result = mysqli_query($conn,$sql);
+    function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
+	{
+        console.log("voglio inviare i dati");
+      
+          var today = new Date();
+          //var dd = String(today.getDate()).padStart(2, '0');
+          //var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+          //var yyyy = today.getFullYear();
 
+          //today = yyyy + '-' + mm + '-' + dd;
+      
+              $.ajax({
+          url: "sendObiettivi.php",
+          type: "POST", //send it through get method
+          data: { 
+            date: today.getDate(),
+            eni: eni, 
+            heracomm: heracomm, 
+            iberdrola: iberdrola,
+            sinergy: sinergy, 
+            wind: wind
+            
+          },
+          success: function(response) {
+            console.log(response);
+            console.log("dati inviati");
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+          }
+        });
+	}
+	
+	
+	
+  
 
-
-
-  //$sql = "INSERT INTO obiettivi VALUES ('00-00-0000',2,3,4,5,6)";  //questa scritta direttamente su phpmyadmin
-  //$sql = "INSERT INTO obiettivi VALUES ('".$_POST["inputEni"]."','".$_POST["inputEni"]."','".$_POST["inputHeracomm"]."','".$_POST["inputIberdrola"]."','".$_POST["inputSinergy"]."','".$_POST["inputWind"]."')";
-  //$result = mysqli_query($conn,$sql);
-function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
-{
-
-
-      var today = new Date();
-      //var dd = String(today.getDate()).padStart(2, '0');
-      //var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-      //var yyyy = today.getFullYear();
-
-      //today = yyyy + '-' + mm + '-' + dd;
-
-          $.ajax({
-      url: "sendObiettivi.php",
-      type: "POST", //send it through get method
-      data: {
-        date: today.getDate(),
-        eni: eni,
-        heracomm: heracomm,
-        iberdrola: iberdrola,
-        sinergy: sinergy,
-        wind: wind
-
-      },
-      success: function(response) {
-        //Do Something
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
-
-}
-
-
-
-
-
-
-
-
-</script>
+	
+	
+	
+</script>	
 
 </body>
 </html>

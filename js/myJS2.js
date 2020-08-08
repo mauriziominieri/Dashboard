@@ -1,8 +1,6 @@
-
-
-var n_giorni_nel_mese,OBIETTIVO=0,flag=0;
+var n_giorni_nel_mese,OBIETTIVO=0,flag=0,ufficiTot = 25;
 var data,ufficio,brand,giorno,mese,currMese,currGiorno,brand,operatore;
-var dataSet=[],dataSet1=[],dataSetGiorno=[],dataSetMese=[],obiettivi=[],columns=[];
+var dataSet=[],dataSet1=[],dataSetGiorno=[],dataSetMese=[],obiettivi=[],columns=[],ufficiMese = [];
 var today = new Date();   //today = yyyy + '-' + mm + '-' + dd;
 
 
@@ -616,16 +614,30 @@ for(var i=0;i<energieMese.length;i++){
        else if(energieMese[i]=="WIND")
         obiettivi2[i] = obiettivi[4];
 
-      OBIETTIVO = OBIETTIVO + obiettivi2[i];
+     
 }
 
+   OBIETTIVO = OBIETTIVO + obiettivi[0];
+   OBIETTIVO = OBIETTIVO + obiettivi[1];
+   OBIETTIVO = OBIETTIVO + obiettivi[2]; 
+   OBIETTIVO = OBIETTIVO + obiettivi[3];
+   OBIETTIVO = OBIETTIVO + obiettivi[4];
+  
+   OBIETTIVO = OBIETTIVO/ufficiTot;
 
   obiettivi = obiettivi2;
 
 
 
- var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
+
+  var m1 = new Map(),m2 = new Map(),m3 = new Map(),m4 = new Map();
+
+  m1.set("ENI","text-secondary"); m1.set("HERACOMM","text-info"); m1.set("IBERDROLA","text-success"); m1.set("SINERGY","text-primary"); m1.set("WIND","text-warning");
+  m2.set("ENI","bg-secondary"); m1.set("HERACOMM","bg-info"); m1.set("IBERDROLA","bg-success"); m1.set("SINERGY","bg-primary"); m1.set("WIND","bg-warning");
+  m3.set("ENI","#36b9rc"); m1.set("HERACOMM","#36b9cc"); m1.set("IBERDROLA","#1cc88a"); m1.set("SINERGY","#4e73df"); m1.set("WIND","#f0ad4e");
+  m4.set("ENI","black"); m1.set("HERACOMM","#2c9faf"); m1.set("IBERDROLA","#17a673"); m1.set("SINERGY","#2e59d9"); m1.set("WIND","#ffa500");
+  var colori = ["text-info","text-success","text-warning","text-primary","text-secondary","text-danger"];
+  var coloriBar = ["bg-info","bg-success","bg-warning","bg-primary","bg-secondary","bg-danger"];
 
 console.log("OBIETTIVO: "+OBIETTIVO);
 
@@ -643,7 +655,9 @@ $('#cardMese').append('<h4><div class="progress"><div class="progress-bar progre
 
    for(var i=0;i<energieMese.length;i++){
        //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-       $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energieM[i]+' su '+obiettivi[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%;" aria-valuenow="'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energieM[i]/obiettivi[i]*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
+                                          //console.log("energia: "+energieMese[i]);
+                                          //console.log("prendo il colore: "+m2.get("+energieMese[i])+");
+       $('#cardMese').append('<h4>'+energieMese[i]+': '+n_energieM[i]+' su '+obiettivi[i]/ufficiTot+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energieM[i]/(obiettivi[i]/ufficiTot)*100).toFixed(1)+'%;" aria-valuenow="'+(n_energieM[i]/(obiettivi[i]/ufficiTot)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energieM[i]/(obiettivi[i]/ufficiTot)*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
    }
 
 
@@ -662,8 +676,8 @@ myPieChart = new Chart(pieMese, {
     destroy: true,   //eliminiamo la precedente tabella, molto importante
         datasets: [{
           data: n_energieM,
-          backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
+          backgroundColor: ['#36b9cc', '#1cc88a', '#f0ad4e','#4e73df', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
+          hoverBackgroundColor: ['#2c9faf', '#17a673', '#ffa500','#2e59d9', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
           hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
       },
@@ -742,16 +756,16 @@ for ( var i = 0; i < dataSet.length; i++ ) {
 }
 }
 
-   var colori = ["text-primary","text-warning","text-info","text-success","text-secondary","text-danger"];
- var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary","bg-danger"];
+  var colori = ["text-info","text-success","text-warning","text-primary","text-secondary","text-danger"];
+ var coloriBar = ["bg-info","bg-success","bg-warning","bg-primary","bg-secondary","bg-danger"];
 
 $('#cardGiorno').html("");
-$('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
+$('#cardGiorno').append('<h4><div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[5]+'" role="progressbar" style="width: '+(totGiorno/(OBIETTIVO/n_giorni_nel_mese).toFixed(0)*100).toFixed(1)+'%;" aria-valuenow="'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese).toFixed(0)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(totGiorno/(OBIETTIVO/n_giorni_nel_mese).toFixed(0)*100).toFixed(1)+'%</div></div> </h4><br>');  //inserisco i dati nella card
 
 
    for(var i=0;i<energieMese.length;i++){
        //$('#pieLegendGiorno').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-  $('#cardGiorno').append('<h4>'+energieMese[i]+': '+n_energie2[i]+' su '+(obiettivi[i]/n_giorni_nel_mese).toFixed(0)+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie2[i]/(obiettivi[i]/n_giorni_nel_mese)*100).toFixed(1)+'%</div></div> </h4>');  //inserisco i dati nella card
+  $('#cardGiorno').append('<h4>'+energieMese[i]+': '+n_energie2[i]+' su '+((obiettivi[i]/n_giorni_nel_mese)/ufficiTot).toFixed(0)+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(((n_energie2[i]/((obiettivi[i]/ufficiTot)/n_giorni_nel_mese).toFixed(0))*100).toFixed(1))+'%;" aria-valuenow="'+(((n_energie2[i]/((obiettivi[i]/ufficiTot)/n_giorni_nel_mese).toFixed(0))*100).toFixed(1))+'" aria-valuemin="0" aria-valuemax="100">'+(((n_energie2[i]/((obiettivi[i]/ufficiTot)/n_giorni_nel_mese).toFixed(0))*100).toFixed(1))+'%</div></div> </h4>');  //inserisco i dati nella card
    }
 
 var pieGiorno = document.getElementById("myPieChartGiorno");
@@ -762,8 +776,8 @@ var pieGiorno = document.getElementById("myPieChartGiorno");
         labels: energieMese,
         datasets: [{
           data: n_energie2,
-         backgroundColor: ['#4e73df', '#f0ad4e', '#36b9cc','#1cc88a', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
-          hoverBackgroundColor: ['#2e59d9', '#ffa500', '#2c9faf','#17a673', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
+          backgroundColor: ['#36b9cc', '#1cc88a', '#f0ad4e','#4e73df', '#36b9rc', '#1cc81a','#4e73bf', '#1cc83a', '#36b9lc'],
+          hoverBackgroundColor: ['#2c9faf', '#17a673', '#ffa500','#2e59d9', 'black', '#ffa500','#2e59d9', '#17a673', '#2c9faf'],
           hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
       },
@@ -889,7 +903,7 @@ $.each(dataArr,function(){       //per ogni riga
     dataSet1.push(valArr[col_uff]);      //dataset conterrà tutti i dati in formato array di stringhe del 5 luglio
 });
 
-var ufficiMese = [], n_ufficiMese = [], prev;
+var n_ufficiMese = [], prev;
 var totMese=0;
 
 dataSet.sort();
@@ -965,6 +979,8 @@ var dataSet = [],energie = [],n_energie = [];
 var mese,prev;
 
 
+
+
     $.each(dataArr,function(){       //per ogni riga
             valArr = this.split(";");   //prendo valore per valore in base al ;
             mese = valArr[col_data].substr(2, 1);
@@ -990,7 +1006,9 @@ for ( var i = 0; i < dataSet.length; i++ ) {
  var coloriBar = ["bg-primary","bg-warning","bg-info","bg-success","bg-secondary"];
    for(var i=0;i<energie.length;i++){
        //$('#pieLegend').append('<span class="mr-2"> <i class="fas fa-circle '+colori[i]+'"></i> '+energie[i]+'</span>');
-       $('#cardMese').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
+      // $('#cardMese').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
+
+ 	$('#cardMese').append('<h2>'+energie[i]+'<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated '+coloriBar[i]+'" role="progressbar" style="width: '+(n_energie[i]/obiettivo*100).toFixed(1)+'%;" aria-valuenow="'+(n_energie[i]/obiettivo*100).toFixed(1)+'" aria-valuemin="0" aria-valuemax="100">'+(n_energie[i]/obiettivo*100).toFixed(1)+'%</div></div> </h2> <br>');  //inserisco i dati nella card
 
    }
 
@@ -1208,9 +1226,11 @@ function getData() {
      default: n_giorni_nel_mese = -1; break;
    }
  */
-  /*$.ajax                        //obiettivi presi da database
+
+
+  $.ajax({                      //obiettivi presi da database
     url: '../getObiettivi.php',
-    type: 'GET',
+    type: "GET",
     dataType: 'JSON',
     success: function(response){
         console.log(response);
@@ -1238,7 +1258,7 @@ function getData() {
     error: function(xhr) {
         console.log(xhr);
     }
-  });*/
+  });
 
 
 
@@ -1246,11 +1266,11 @@ function getData() {
 
 
   // A MANO, GIUSTO PER PROVA
-    obiettivi[0] = 450;
-    obiettivi[1] = 250;
-    obiettivi[2] = 500;
-    obiettivi[3] = 350;
-    obiettivi[4] = 600;
+   /* obiettivi[0] = 500;
+    obiettivi[1] = 400;   
+    obiettivi[2] = 700;
+    obiettivi[3] = 350;   //il minimo deve essere 350 se ci sono 25 uffici, perchè poi per gli obiettivi giorno specifici uffici andremo a fare 350/25/22
+    obiettivi[4] = 600;*/
 
     currMese = 7;
     currGiorno = 17;
@@ -1265,7 +1285,7 @@ function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
       console.log("SEND DATA...");
 
 
-        /*  $.ajax({
+          $.ajax({
       url: "../sendObiettivi.php",
       type: "POST", //send it through get method
       data: {
@@ -1283,5 +1303,9 @@ function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
       error: function(xhr) {
           console.log(xhr);
       }
-    });*/
+    });
 }
+
+  
+  
+ 

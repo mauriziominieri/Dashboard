@@ -48,132 +48,290 @@ position: relative;
 
 <style>
  .disabled {
-     color: gray;
+     color: white;
      pointer-events: none;
      cursor: default;
+  
  }
+  
+  
+  input::placeholder {
+  color: red;
+}
+  
+
+  
+  
+  
 </style>
+  
+  
+  
+  
+  
+  
+  
+  <!--LOADING WHEEL-->
+<!--<link href="css/myCSS.css" rel="stylesheet">-->
+  
+  
+  <style>
+/* Spinner Wrapper */
+.loader {
+width: 100vw;
+height: 100vh;
+background: white;
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.loader-inner {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+/* Spinner */
+.lds-roller {
+display: inline-block;
+position: relative;
+width: 64px;
+height: 64px;
+}
+.lds-roller div {
+animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+transform-origin: 32px 32px;
+}
+.lds-roller div:after {
+content: " ";
+display: block;
+position: absolute;
+width: 10px;
+height: 13px;
+border-radius: 50%;
+background: #17a2b8;
+margin: -3px 0 0 -3px;
+}
+.lds-roller div:nth-child(1) {
+animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+top: 50px;
+left: 50px;
+}
+.lds-roller div:nth-child(2) {
+animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+top: 54px;
+left: 45px;
+}
+.lds-roller div:nth-child(3) {
+animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+top: 57px;
+left: 39px;
+}
+.lds-roller div:nth-child(4) {
+animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+top: 58px;
+left: 32px;
+}
+.lds-roller div:nth-child(5) {
+animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+top: 57px;
+left: 25px;
+}
+.lds-roller div:nth-child(6) {
+animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+top: 54px;
+left: 19px;
+}
+.lds-roller div:nth-child(7) {
+animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+top: 50px;
+left: 14px;
+}
+.lds-roller div:nth-child(8) {
+animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+top: 45px;
+left: 10px;
+}
+@keyframes lds-roller {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+
+/*Add animation to "page content" */
+.animate-bottom {
+position: relative;
+-webkit-animation-name: animatebottom;
+-webkit-animation-duration: 1s;
+animation-name: animatebottom;
+animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+from { bottom:-100px; opacity:0 }
+to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+from{ bottom:-100px; opacity:0 }
+to{ bottom:0; opacity:1 }
+}
+</style>
+  
+  
+  
 
 
 </head>
 <body class="bg-gradient-info">
+  
+  
+  
+  
+<!-- Loading Spinner Wrapper-->
+<div class="loader text-center" id="loader">
+<div class="loader-inner">
 
+    <!-- Animated Spinner -->
+    <div class="lds-roller mb-3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-
-   <!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#objModal">
-Inserisci obiettivi
-</button>-->
-
-<!-- Modal -->
-<!--<div class="modal fade" id="objModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-     <h5 class="modal-title" id="exampleModalLabel">OBIETTIVI MESE</h5>
-     <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-     </button>
-   </div>
-   <div class="modal-body">
-
-  <div class="col-md-12 pd-10">
-   <!--<h3>Java Script Number Only area</h3>
-     <div class="col-md-2"><h4>Type only Number</h4> </div>
-     <div class="col-md-12"><INPUT class="col-md-12" id="inputEni" placeholder="ENI" onkeypress="return isNumberKey(event)"    name="inputEni"/> </div><br>
-   <div class="col-md-12"><INPUT class="col-md-12" id="inputHeracomm" placeholder="HERACOMM" onkeypress="return isNumberKey(event)"   type="number" name="inputHeracomm"/> </div><br>
-     <div class="col-md-12"><INPUT class="col-md-12" id="inputIberdrola" placeholder="IBERDROLA" onkeypress="return isNumberKey(event)"   type="number" name="inputIberdrola"/> </div><br>
-   <div class="col-md-12"><INPUT class="col-md-12" id="inputSinergy" placeholder="SINERGY" onkeypress="return isNumberKey(event)"   type="number" name="inputSinergy"/> </div><br>
-    <div class="col-md-12"><INPUT class="col-md-12" id="inputWind" placeholder="WIND" onkeypress="return isNumberKey(event)"   type="number" name="inputWind"/> </div>
-   </div>
-   </div>
-   <div class="modal-footer">
-     <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
-     <button type="button" class="btn btn-primary" onclick="setObj()" data-dismiss="modal">Conferma</button>
-   </div>
- </div>
+    <!-- Spinner Description Text [For Demo Purpose]-->
+    <h4 class="text-uppercase font-weight-bold">Ciao !</h4>
+    <p class="font-italic text-muted">Attendi un attimo</p>
 </div>
-</div>-->
+</div>
+  
 
 
 
-
-<div class="container">
+<div style="display:none;" id ="mainDiv" class="container">
 
  <!-- Outer Row -->
- <div class="row justify-content-center">
+ <div class="row justify-content-center my-5">
 
-   <div class="col-xl-10 col-lg-12 col-md-9">
+   <div class="col-xl-10 col-lg-12 col-md-9 align-middle my-5">
 
      <div class="card o-hidden border-0 shadow-lg my-5">
-       <div class="card-body p-0">
+       <div class="card-body p-5" >
          <!-- Nested Row within Card Body -->
+         <div class="text-center">
+           <h1 id="title" class="h4 text-gray-900 mb-4"></h1>
+         </div>
          <div class="row">
           <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>-->
-           <div class="col-lg-6 d-none d-lg-block obj-image" style=""></div>
-           <div class="col-lg-6">
-             <div class="p-5">
-               <div class="text-center">
-                 <h1 class="h4 text-gray-900 mb-4">Seleziona gli obiettivi!</h1>
-               </div>
+
+
+           <div class="col-md-12 col-lg-6">
+           <div class="px-0 py-5 px-lg-5">  <!--default:small -> padding sulla x 0(larghezza massima), padding sulla y di 5(top e bottom 5), padding sulla x dei dispositivi large di 5   -->
+           <div class="text-center">
+              <!--<h1 class="h4 text-gray-900 mb-4">&nbsp;</h1>-->
+             <form data-toggle="validator" role="form" class="user">
+              <div class="form-group has-feedback">
+                      <!-- <div class="dropdown">-->
+                       <div class="list-group" id="list-tab" role="tablist" style="height: auto;max-height: 250px;overflow-x: hidden;">
+                         <!--<a class="list-group-item list-group-item-action active" id="aversa 1" data-toggle="list" href="Aversa 1" role="tab">Aversa 1</a>
+                         <a class="list-group-item list-group-item-action" id="aversa 1" data-toggle="list" href="Aversa 1" role="tab">Aversa 1</a>
+                         <a class="list-group-item list-group-item-action" id="aversa 2" data-toggle="list" href="#list-profile" role="tab">Aversa 2</a>
+                         <a class="list-group-item list-group-item-action" id="leopardi 1" data-toggle="list" href="#list-messages" role="tab">Leopardi 1</a>
+                         <a class="list-group-item list-group-item-action" id="leopardi 2" data-toggle="list" href="#list-settings" role="tab">Leopardi 2</a>
+                         <a class="list-group-item list-group-item-action" id="aversa 2" data-toggle="list" href="#list-profile" role="tab">Aversa 2</a>
+                         <a class="list-group-item list-group-item-action" id="leopardi 1" data-toggle="list" href="#list-messages" role="tab">Leopardi 1</a>-->
+                        
+                       </div>
+                    <!--  </div>-->
+                    </div>
+              </form>
+          </div>
+          </div>
+           </div>
+           <div class="col-md-12 col-lg-6">
+             <div class="px-0 py-5 px-lg-5">
+
                <form data-toggle="validator" role="form" class="user">
-                 <div class="form-group has-feedback">
-                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputEni" aria-describedby="ENI_obj" placeholder="ENI" name="inputEni" required>
-                 </div>
-                 <div class="form-group has-feedback">
-                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputHeracomm" aria-describedby="HERACOMM_obj" placeholder="HERACOMM" name="inputHeracomm" required>
-                 </div>
-                  <div class="form-group">
-                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputIberdrola" aria-describedby="IBERDROLA_obj" placeholder="IBERDROLA" name="inputIberdrola" required>
-                 </div>
-                  <div class="form-group">
-                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputSinergy" aria-describedby="SINERGY_obj" placeholder="SINERGY" name="inputSinergy" required>
-                 </div>
-                  <div class="form-group">
-                   <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control form-control-user" id="inputWind" aria-describedby="WIND_obj" placeholder="WIND" name="inputWind" required>
-                 </div>
-                 <!--<div class="form-group">
-                   <div class="custom-control custom-checkbox small">
-                     <input type="checkbox" class="custom-control-input" id="customCheck">
-                     <label class="custom-control-label" for="customCheck">Remember Me</label>
+                 <div class="tab-content" id="nav-tabContent">
+                   <!--<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Aversa 1</div>-->
+
+                   <div class="form-group row">
+                       <label for="staticEmail" class="col-sm-6 col-form-label">ENI:</label>
+                       <div class="col-sm-6">
+                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputEni" aria-describedby="ENI_obj" placeholder="0" name="inputEni" required>
+                       </div>
                    </div>
-                 </div>-->
-
-
-
-         <!--<button type="submit" class="btn btn-primary btn-user btn-block" onclick="setObj()">    <a onclick="setObj()">Conferma</a>
-
-            <!--</button>-->
-
-                 <a id="confermaButton" href="https://salesdashboard.it/dashboard/dashboard/index.html" class="btn btn-primary btn-user btn-block disabled" onclick="setObj()" role="button"> <!--class="btn btn-primary btn-user btn-block" onclick="setObj()">-->
-                   Conferma
-                 </a>
-
-
-
-                 <!--<hr>
-                 <a href="index.html" class="btn btn-google btn-user btn-block">
-                   <i class="fab fa-google fa-fw"></i> Login with Google
-                 </a>
-                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                   <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                 </a>-->
-
+                   <div class="form-group row">
+                       <label for="staticEmail" class="col-sm-6 col-form-label">HERACOMM:</label>
+                       <div class="col-sm-6">
+                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputHeracomm" aria-describedby="HERACOMM_obj" placeholder="0" name="inputHeracomm" required>
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="staticEmail" class="col-sm-6 col-form-label">IBERDROLA:</label>
+                       <div class="col-sm-6">
+                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputIberdrola" aria-describedby="IBERDROLA_obj" placeholder="0" name="inputIberdrola" required>
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="staticEmail" class="col-sm-6 col-form-label">SINERGY:</label>
+                       <div class="col-sm-6">
+                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputSinergy" aria-describedby="SINERGY_obj" placeholder="0" name="inputSinergy" required>
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="staticEmail" class="col-sm-6 col-form-label">WIND:</label>
+                       <div class="col-sm-6">
+                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputWind" aria-describedby="WIND_obj" placeholder="0" name="inputWind" required>
+                       </div>
+                   </div>
+                 </div>
 
                </form>
 
-
-              <!-- <hr>
-               <div class="text-center">
-                 <a class="small" href="forgot-password.html">Forgot Password?</a>
-               </div>
-               <div class="text-center">
-                 <a class="small" href="register.html">Create an Account!</a>
-               </div>-->
-
-
              </div>
            </div>
+           
+           <div class="text-center" style="margin: 0 auto;">
+              <a id="endButton" href="https://salesdashboard.it/dashboard/dashboard/index.html" class="btn btn-success btn-user btn-block" role="button">Finito</a>
+           </div>
+           
+           <div class="text-center" style="margin: 0 auto;">
+          <!-- <a id="confermaButton" href="https://salesdashboard.it/dashboard/dashboard/index.html" class="btn btn-primary btn-user btn-block disabled" onclick="setObj()" role="button">-->
+              <a id="confermaButton" class="btn btn-primary btn-user btn-block disabled" onclick="setObj()" role="button" style="color: white;">
+             Conferma
+           </a>
+           </div>
+
          </div>
        </div>
      </div>
@@ -219,61 +377,345 @@ Inserisci obiettivi
 
 <!--per le labels piechart-->
 <script src="https://raw.githubusercontent.com/emn178/chartjs-plugin-labels/master/src/chartjs-plugin-labels.js"></script>
+  
+  
 
-
-
-
+ 
+  
+  
+  
 
 <script>
-function setObj() //modal
-{
-   var obiettivi=[];
-   obiettivi[0] = document.getElementById('inputEni').valueAsNumber;
-   obiettivi[1] = document.getElementById('inputHeracomm').valueAsNumber;
-   obiettivi[2] = document.getElementById('inputIberdrola').valueAsNumber;
-   obiettivi[3] = document.getElementById('inputSinergy').valueAsNumber;
-   obiettivi[4] = document.getElementById('inputWind').valueAsNumber;
-       sendMyData(obiettivi[0],obiettivi[1],obiettivi[2],obiettivi[3],obiettivi[4]);
+  var ufficiMese = ["Aversa 1"],dataSet=[]; 
+  const URL1 = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE WIND.xlsx';   //con www da problemi di sicurezza
+  const URL = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE ENERGIA.xlsx';
+  var flag=0;
+  
+  
+  
+  
+  var oFile,oFile1;
 
+//FILE XLSX TRAMITE URL	(la prima volta verrà chiamata con il file energia.xlsx, la seconda con wind.xlsx)
+$(document).ready(ExportToTableByURL(URL));
+function ExportToTableByURL(url) {
+//var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)+([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+var regex = /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/;
+
+var request = new XMLHttpRequest();  //crea una richiesta http
+request.open('POST',url, true);
+request.setRequestHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8');    //setto una header alla mia richiesta di tipo xslx
+request.responseType = 'blob';         //la risposta DEVE essere di tipo blob (dati che possono essere letti come testo o bit o convertiti in readablestream)
+
+request.onload = function(e) {
+if (this.status === 200) {    //andata a buon fine
+  blob = this.response;
+
+  if(window.navigator.msSaveOrOpenBlob) {
+    window.navigator.msSaveBlob(blob, "energia.xlsx");
+  }
+  else{
+    oFile = new File([blob], "energia.xlsx", {type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+    //console.log("oFile xlsx creato da zero:");
+    //console.log(oFile);
+
+
+      //if (regex.test(oFile.name.toLowerCase())) {
+          var xlsxflag = false; //Flag for checking whether excel is .xls format or .xlsx format
+          if (oFile.name.toLowerCase().indexOf(".xlsx") > 0) {
+              xlsxflag = true;
+          }
+          //Checks whether the browser supports HTML5
+          if (typeof (FileReader) != "undefined") {
+              var reader = new FileReader();
+
+
+              reader.onload = function (e) {
+                  var data = e.target.result;
+                  //Converts the excel data in to object
+                  if (xlsxflag) {
+                      var workbook = XLSX.read(data, { type: 'binary' });
+                  }
+                  else {
+                      var workbook = XLS.read(data, { type: 'binary' });
+                  }
+                  //Gets all the sheetnames of excel in to a variable
+                  var sheet_name_list = workbook.SheetNames;
+
+                  var cnt = 0; //This is used for restricting the script to consider only first sheet of excel
+                  sheet_name_list.forEach(function (y) { //Iterate through all sheets
+                      //Convert the cell value to Json
+                      if (xlsxflag) {
+                          //console.log("file xlsx rilevato1!!!");
+                          var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                      }
+                      else {
+                          var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                      }
+
+                      if (exceljson.length > 0 && cnt == 0) {
+
+            BindTable(exceljson, '#exceltable');
+            if(flag == 0)
+            flag=1;
+
+                          cnt++;
+                      }
+                  });
+                  //$('#exceltable').show();
+              }
+
+              if (xlsxflag) {//If excel file is .xlsx extension than creates a Array Buffer from excel
+        //console.log("file xlsx rilevato2!!!");
+                 //reader.readAsArrayBuffer(blob[0].files[0]);
+        reader.readAsArrayBuffer(oFile);
+              }
+              else {
+                  reader.readAsBinaryString($("#excelfile")[0].files[0]);
+              }
+          }
+          else {
+              alert("Sorry! Your browser does not support HTML5!");
+          }
+      /*}
+      else {
+          alert("Please upload a valid Excel file!");
+      }*/
+
+          }
+         }
+      };
+      request.send();
+
+}
+  
+  
+  
+  
+  
+  
+  
+  function BindTable(jsondata, tableid) {//Function used to convert the JSON array to Html Table
+
+  if(flag == 0)
+      columns = BindTableHeader(jsondata, tableid); //Gets all the column headings of Excel
+  else
+      brand = "WIND";
+
+  for (var i = 0; i < jsondata.length; i++) {
+        // for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+
+    if(flag==0)
+     brand = jsondata[i][columns[3]];
+
+   if(jsondata[i][columns[1]]){
+     ufficio = jsondata[i][columns[1]];
+    
+
+      dataSet.push(ufficio);
+    }
+
+  }
+
+  //console.log("energia: ");
+  // console.log(dataSet);
+
+  if(flag==0)
+     ExportToTableByURL(URL1);
+  else {
+    createTableXLS(dataSet);
+    //createPieChartMeseXLS(dataSetMese);
+    //createPieChartGiornoXLS(dataSetGiorno);
+  }
 }
 
 
 
 
+//PRENDE LE COLONNE VOLUTE NEI DATI JSON
+function BindTableHeader(jsondata, tableid) {
+     var columnSet = [];
+
+     for (var i = 0; i < jsondata.length; i++) {
+         var rowHash = jsondata[i];
+         for (var key in rowHash) {
+           //console.log("key: "+key);
+           if(key == "Data creaz." || key == "Coordinatore CCeasy" || key == "Operatore CCeasy" || key == "Brand Energia"){
+             if (rowHash.hasOwnProperty(key)) {
+               if ($.inArray(key, columnSet) == -1) {
+                 columnSet.push(key);
+
+               }
+             }
+           }
+         }
+     }
+     return columnSet;
+}
+  
+  
+  function createTableXLS(dataSet){
+
+      var dataSetOff = [];
+      var n_ufficiMese = [], prev;
 
 
+      dataSet.sort();
 
-   //$sql = "INSERT INTO obiettivi VALUES ('00-00-0000',2,3,4,5,6)";  //questa scritta direttamente su phpmyadmin
-   //$sql = "INSERT INTO obiettivi VALUES ('".$_POST["inputEni"]."','".$_POST["inputEni"]."','".$_POST["inputHeracomm"]."','".$_POST["inputIberdrola"]."','".$_POST["inputSinergy"]."','".$_POST["inputWind"]."')";
-   //$result = mysqli_query($conn,$sql);
- function sendMyData(eni,heracomm,iberdrola,sinergy,wind)
+      for ( var i = 0; i < dataSet.length; i++ ) {
+        if ( dataSet[i] !== prev ) {
+          ufficiMese.push(dataSet[i]);
+          n_ufficiMese.push(1);
+         
+        } else {
+          n_ufficiMese[n_ufficiMese.length-1]++;
+         
+        }
+        prev = dataSet[i];
+      }
+    
+    
+     console.log("ufficiMESE obiettivi: "+ufficiMese);
+     getData();
+    
+    
+    
+  }
+  
+</script>  
+  
+  
+  
+  
+  
+
+<script>
+function setObj() //modal
 {
+   var obiettivi=[];
+   var lista_el,ufficio,nUff = 25;
+   active_element = document.getElementsByClassName("list-group-item list-group-item-action active");
+
+   if(active_element[0]==undefined)
+      alert("Seleziona una forza lavoro")
+   else {
+      ufficio = active_element[0].text;
+      console.log("ufficio: "+ufficio);
+
+      active_element[0].classList.add("list-group-item-success");
+      active_element[0].classList.remove("active");
+      //lista_el[1].classList.add("active");
+
+      //$(".list-group-item list-group-item-action active").removeClass("list-group-item list-group-item-action active");
+      //$(".list-group-item list-group-item-action active").addClass("list-group-item list-group-item-success");
 
 
-       var today = new Date();
-       //var dd = String(today.getDate()).padStart(2, '0');
-       //var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-       //var yyyy = today.getFullYear();
+      obiettivi[0] = document.getElementById('inputEni').valueAsNumber;
+      obiettivi[1] = document.getElementById('inputHeracomm').valueAsNumber;
+      obiettivi[2] = document.getElementById('inputIberdrola').valueAsNumber;
+      obiettivi[3] = document.getElementById('inputSinergy').valueAsNumber;
+      obiettivi[4] = document.getElementById('inputWind').valueAsNumber;
 
-       //today = yyyy + '-' + mm + '-' + dd;
+      document.getElementById('inputEni').value = null;
+      document.getElementById('inputHeracomm').value = null;
+      document.getElementById('inputIberdrola').value = null;
+      document.getElementById('inputSinergy').value = null;
+      document.getElementById('inputWind').value = null;
+      $("#confermaButton").addClass("disabled");
 
-           $.ajax({
+      sendData(ufficio,obiettivi[0],obiettivi[1],obiettivi[2],obiettivi[3],obiettivi[4]);
+    }
+}
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+function getData() {
+  
+ 
+  
+  
+
+   //today = yyyy + '-' + mm + '-' + dd;
+   today = mm+'/'+yyyy;
+  //console.log(today);
+  $('#title').append(today+':&nbsp;&nbsp;&nbsp;Seleziona gli obiettivi!');
+  
+  
+  //var uffici = ["Aversa 1","Aversa 2","Leopardi 1","Leopardi 2","Casapulla 1"];
+  
+  for(var i=0;i<ufficiMese.length;i++)
+     $('#list-tab').append('<a class="list-group-item list-group-item-action" id="'+ufficiMese[i].toLowerCase()+'" data-toggle="list" href="Aversa 1" role="tab">'+ufficiMese[i]+'</a>');
+   
+
+  console.log("GET DATA... ");
+
+ $.ajax({
+   url: "getObiettivi2.php",
+   type: 'GET',
+   dataType: 'json',
+   data: { 
+    date: today,
+   },
+   success: function(response){
+     
+       console.log("response: "+response);
+     
+       var len = response.length;
+       var ufficio,eni,heracomm,iberdrola,sinergy,wind;
+
+       for(i=0; i<len; i++){
+            ufficio = response[i].ufficio.toLowerCase();
+            eni = Math.floor(response[i].eni);
+            heracomm = Number(response[i].heracomm);
+            iberdrola = Number(response[i].iberdrola);
+            sinergy = Number(response[i].sinergy);
+            wind = Number(response[i].wind);
+         
+         	//console.log("In questo mese sono già fissati gli obiettivi per: '"+ufficio+"'");
+       		document.getElementById(ufficio).classList.add("list-group-item-success");
+       }
+     
+     
+     	document.getElementById("loader").style.display = "none";
+  		document.getElementById("mainDiv").style.display = "block";
+   },
+   error: function(xhr, status, error) {
+          console.log("errore: "+xhr.responseText);
+           console.log("status: "+status);
+      console.log("error: "+error);
+     
+   }
+ });
+
+}
+
+function sendData(ufficio,eni,heracomm,iberdrola,sinergy,wind) {
+  
+  	  console.log("SEND DATA...");
+
+      today = mm+'/'+yyyy;
+  	  console.log(ufficio.toLowerCase()+" "+today+" "+eni+" "+wind);
+  
+      $.ajax({
        url: "sendObiettivi.php",
-       type: "POST", //send it through get method
+       type: 'POST', //send it through get method
        data: {
-         date: today.getDate(),
+         ufficio: ufficio.toLowerCase(),
+         date: today, 
          eni: eni,
          heracomm: heracomm,
          iberdrola: iberdrola,
          sinergy: sinergy,
-         wind: wind
-
+         wind: wind,
        },
        success: function(response) {
-         console.log("Dati inseriti: "+eni+" "+heracomm+" ecc");
+         console.log(response);
        },
-       error: function(xhr) {
-         //Do Something to handle error
+       error: function(xhr, status, error) {
+           console.log(xhr.responseText);
        }
      });
 
@@ -281,13 +723,12 @@ function setObj() //modal
 
  function checkEmpty(){
 
-    if(document.getElementById('inputEni').value=="" || document.getElementById('inputEni').value==null ||
+   if(document.getElementById('inputEni').value=="" || document.getElementById('inputEni').value==null ||
       document.getElementById('inputHeracomm').value=="" || document.getElementById('inputHeracomm').value==null ||
       document.getElementById('inputIberdrola').value=="" || document.getElementById('inputIberdrola').value==null ||
       document.getElementById('inputSinergy').value=="" || document.getElementById('inputSinergy').value==null ||
-      document.getElementById('inputWind').value=="" || document.getElementById('inputWind').value==null){
-
-
+      document.getElementById('inputWind').value=="" || document.getElementById('inputWind').value==null
+    ){
       console.log("qualcuno vuoto");
       $("#confermaButton").addClass("disabled");
    }
@@ -308,8 +749,6 @@ function setObj() //modal
 
 
 </script>
-
-
 
 
 
