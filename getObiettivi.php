@@ -1,13 +1,11 @@
 <?php
+//$conn = mysqli_connect("37.183.243.250", "obiettivi", "10051987", "obiettivi_mese");
+//$conn = mysqli_connect("serverwebagency.ddns.net", "obiettivi", "10051987", "obiettivi_mese");
 $conn = mysqli_connect("87.16.18.183", "obiettivi", "10051987", "obiettivi_mese");
 
-
-$result = mysqli_query($conn,"SELECT eni, heracomm, iberdrola, sinergy, wind FROM obiettivi");// WHERE data = ?";
-
-
-
-
-
+$ufficio = $_GET['ufficio'];
+$date = $_GET['date'];
+$result = mysqli_query($conn,"SELECT eni, heracomm, iberdrola, sinergy, wind FROM obiettivi WHERE ufficio = '$ufficio' AND date = '$date'");
 
 while($row = mysqli_fetch_array($result)){
     $eni = $row['eni'];
@@ -20,7 +18,7 @@ while($row = mysqli_fetch_array($result)){
                     "heracomm" => $heracomm,
                     "iberdrola" => $iberdrola,
                     "sinergy" => $sinergy,
-                    "wind" => $wind     
+                    "wind" => $wind
                      );
 }
 

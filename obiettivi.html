@@ -287,31 +287,31 @@ to{ bottom:0; opacity:1 }
                    <div class="form-group row">
                        <label for="staticEmail" class="col-sm-6 col-form-label">ENI:</label>
                        <div class="col-sm-6">
-                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputEni" aria-describedby="ENI_obj" placeholder="0" name="inputEni" required>
+                         <input type="number" min="15" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputEni" aria-describedby="ENI_obj" placeholder="-" name="inputEni" required>
                        </div>
                    </div>
                    <div class="form-group row">
                        <label for="staticEmail" class="col-sm-6 col-form-label">HERACOMM:</label>
                        <div class="col-sm-6">
-                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputHeracomm" aria-describedby="HERACOMM_obj" placeholder="0" name="inputHeracomm" required>
+                         <input type="number" min="15" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputHeracomm" aria-describedby="HERACOMM_obj" placeholder="-" name="inputHeracomm" required>
                        </div>
                    </div>
                    <div class="form-group row">
                        <label for="staticEmail" class="col-sm-6 col-form-label">IBERDROLA:</label>
                        <div class="col-sm-6">
-                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputIberdrola" aria-describedby="IBERDROLA_obj" placeholder="0" name="inputIberdrola" required>
+                         <input type="number" min="15" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputIberdrola" aria-describedby="IBERDROLA_obj" placeholder="-" name="inputIberdrola" required>
                        </div>
                    </div>
                    <div class="form-group row">
                        <label for="staticEmail" class="col-sm-6 col-form-label">SINERGY:</label>
                        <div class="col-sm-6">
-                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputSinergy" aria-describedby="SINERGY_obj" placeholder="0" name="inputSinergy" required>
+                         <input type="number" min="15" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputSinergy" aria-describedby="SINERGY_obj" placeholder="-" name="inputSinergy" required>
                        </div>
                    </div>
                    <div class="form-group row">
                        <label for="staticEmail" class="col-sm-6 col-form-label">WIND:</label>
                        <div class="col-sm-6">
-                         <input type="number" min="0" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputWind" aria-describedby="WIND_obj" placeholder="0" name="inputWind" required>
+                         <input type="number" min="15" oninput="checkEmpty()" onkeypress="return isNumberKey(event)" class="form-control" id="inputWind" aria-describedby="WIND_obj" placeholder="-" name="inputWind" required>
                        </div>
                    </div>
                  </div>
@@ -386,7 +386,7 @@ to{ bottom:0; opacity:1 }
   
 
 <script>
-  var ufficiMese = ["Aversa 1"],dataSet=[]; 
+  var ufficiMese = [],dataSet=[]; 
   const URL1 = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE WIND.xlsx';   //con www da problemi di sicurezza
   const URL = 'https://salesdashboard.it/dashboard/dashboard/report/ESTRAZIONE ENERGIA.xlsx';
   var flag=0;
@@ -664,10 +664,11 @@ function getData() {
        console.log("response: "+response);
      
        var len = response.length;
-       var ufficio,eni,heracomm,iberdrola,sinergy,wind;
+       var ufficio,date,eni,heracomm,iberdrola,sinergy,wind;
 
        for(i=0; i<len; i++){
             ufficio = response[i].ufficio.toLowerCase();
+         	//date = response[i].date; 		//nel php prendo direttamente solo i valori con la data corrente
             eni = Math.floor(response[i].eni);
             heracomm = Number(response[i].heracomm);
             iberdrola = Number(response[i].iberdrola);
@@ -678,9 +679,8 @@ function getData() {
        		document.getElementById(ufficio).classList.add("list-group-item-success");
        }
      
-     
-     	document.getElementById("loader").style.display = "none";
-  		document.getElementById("mainDiv").style.display = "block";
+       document.getElementById("loader").style.display = "none";
+  	   document.getElementById("mainDiv").style.display = "block";
    },
    error: function(xhr, status, error) {
           console.log("errore: "+xhr.responseText);
@@ -722,12 +722,18 @@ function sendData(ufficio,eni,heracomm,iberdrola,sinergy,wind) {
 }
 
  function checkEmpty(){
+   
+   var a=document.getElementById('inputEni').value;
+   var b=document.getElementById('inputHeracomm').value;
+   var c=document.getElementById('inputIberdrola').value;
+   var d=document.getElementById('inputSinergy').value;
+   var e=document.getElementById('inputWind').value;
 
-   if(document.getElementById('inputEni').value=="" || document.getElementById('inputEni').value==null ||
-      document.getElementById('inputHeracomm').value=="" || document.getElementById('inputHeracomm').value==null ||
-      document.getElementById('inputIberdrola').value=="" || document.getElementById('inputIberdrola').value==null ||
-      document.getElementById('inputSinergy').value=="" || document.getElementById('inputSinergy').value==null ||
-      document.getElementById('inputWind').value=="" || document.getElementById('inputWind').value==null
+   if(a=="" || a==null || a<15 ||
+      b=="" || b==null || b<15 ||
+      c=="" || c==null || c<15 ||
+      d=="" || d==null || d<15 ||
+	  e=="" || e==null || e<15
     ){
       console.log("qualcuno vuoto");
       $("#confermaButton").addClass("disabled");
